@@ -1,14 +1,11 @@
 import React from 'react';
 
-const Home = () => {
-
+const Bookshelf = () => {
     return (
         <div>
-
-            Home
-
+            bookshelf
         </div>
     );
 };
 
-export default Home;
+export default Bookshelf;
