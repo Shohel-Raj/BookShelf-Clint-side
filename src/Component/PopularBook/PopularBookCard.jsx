@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const PopularBookCard = () => {
   return (
-    <div className="max-w-sm rounded-lg overflow-hidden shadow-md bg-white">
+    <div className=" rounded-lg overflow-hidden shadow-md bg-white mb-4">
       {/* Book Cover */}
       <img
         src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" // Replace with your book image
@@ -18,7 +18,7 @@ const PopularBookCard = () => {
           A psychological thriller about a woman’s act of violence against her husband—and the therapist obsessed with uncovering why.
         </p>
 
-        <p className="text-xl font-bold text-gray-900 mt-4">$19.99</p>
+
 
         <div className="mt-4 flex gap-2">
           <button className="bg-black text-white text-sm px-4 py-2 rounded-md hover:bg-gray-800">
