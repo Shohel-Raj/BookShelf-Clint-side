@@ -10,6 +10,8 @@ import AddBook from "../Pages/AddBook";
 import LoginSignIn from "../Pages/LoginSignIn";
 import SignIn from "../Component/LoginSignIn/SignIn";
 import UpdateBook from "../Pages/UpdateBook";
+import PageAnim from "../assets/SharedComponent/PageAnim";
+import BookDetaills from "../Pages/BookDetaills";
 
 const router = createBrowserRouter([
     {
@@ -18,48 +20,72 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                Component: Home
+                element: <PageAnim>
+                    <Home></Home>
+                </PageAnim>
             },
             {
                 path: "/About",
-                Component: About
+                element: <PageAnim>
+                    <About></About>
+                </PageAnim>
             },
             {
                 path: "/profile",
-                element: <PrivateRoute>
-                    <Profile></Profile>
-                </PrivateRoute>
-   
+                element: <PageAnim>
+                    <PrivateRoute>
+                        <Profile></Profile>
+                    </PrivateRoute>
+                </PageAnim>
+
             },
             {
                 path: "/loginSignInPage",
-                Component:LoginSignIn
+                element:<PageAnim>
+                    <LoginSignIn></LoginSignIn>
+                </PageAnim>
             },
             {
                 path: "/signin",
-                Component:SignIn
+                element:<PageAnim>
+                    <SignIn></SignIn>
+                </PageAnim>
             },
             {
                 path: "/allbook",
-                Component: Bookshelf
+                element: <PageAnim>
+                    <Bookshelf></Bookshelf>
+                </PageAnim>
+            },
+            {
+                path: "/bookdetails/:id",
+                element: <PageAnim>
+                    <BookDetaills></BookDetaills>
+                </PageAnim>
             },
             {
                 path: "/mybook",
-                element: <PrivateRoute>
-                    <MyBook></MyBook>
-                </PrivateRoute>
+                element: <PageAnim>
+                    <PrivateRoute>
+                        <MyBook></MyBook>
+                    </PrivateRoute>
+                </PageAnim>
             },
             {
                 path: "/addbook",
-                element: <PrivateRoute>
+                element: <PageAnim>
+                    <PrivateRoute>
                     <AddBook></AddBook>
                 </PrivateRoute>
+                </PageAnim>
             },
             {
                 path: "/updatebook",
-                element: <PrivateRoute>
+                element: <PageAnim>
+                    <PrivateRoute>
                     <UpdateBook></UpdateBook>
                 </PrivateRoute>
+                </PageAnim>
             },
         ]
     },

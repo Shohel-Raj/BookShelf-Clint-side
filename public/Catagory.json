@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cat001",
+    "name": "Fantasy",
+    "description": "Stories set in imaginative worlds with magical or supernatural elements, often featuring epic quests and mythical creatures.",
+    "imgUrl": "https://i.postimg.cc/nr3gS3Qh/fantasy.jpg"
+  },
+  {
+    "id": "cat002",
+    "name": "Fiction",
+    "description": "Narrative books created from the imagination, including novels, dramas, and literary works that explore human experiences.",
+    "imgUrl": "https://i.postimg.cc/kMs05ghP/fiction.jpg"
+  },
+  {
+    "id": "cat003",
+    "name": "History",
+    "description": "Books that explore past events, significant eras, and the lives of influential people through factual storytelling.",
+    "imgUrl": "https://i.postimg.cc/285PLNPb/history.jpg"
+  },
+  {
+    "id": "cat004",
+    "name": "Poetry",
+    "description": "Expressive literary works that use rhythm, meter, and language to evoke emotion and imagination.",
+    "imgUrl": "https://i.postimg.cc/m26KQ6sd/poetry.png"
+  }
+]
