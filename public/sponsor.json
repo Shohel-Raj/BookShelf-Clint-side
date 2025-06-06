@@ -1,0 +1,10 @@
+[
+    { "id": 1, "logo": "https://i.postimg.cc/d0BdLt3g/a.png", "alt": "Sponsor 1" },
+    { "id": 2, "logo": "https://i.postimg.cc/rpcxVtVS/b.jpg",  "alt": "Sponsor 2" },
+    { "id": 3, "logo": "https://i.postimg.cc/Y9CFgKm0/c.jpg", "alt": "Sponsor 3" },
+    { "id": 4, "logo": "https://i.postimg.cc/mDpHyXQw/d.jpg",  "alt": "Sponsor 4" },
+    { "id": 5, "logo": "https://i.postimg.cc/nMbM36Mv/e.jpg", "alt": "Sponsor 5" },
+    { "id": 6, "logo": "https://i.postimg.cc/3RqkvyTf/f.jpg",  "alt": "Sponsor 6" },
+    { "id": 7, "logo": "https://i.postimg.cc/rstKC8yV/g.jpg", "alt": "Sponsor 7" },
+    { "id": 8, "logo": "https://i.postimg.cc/WpDnfgh3/h.jpg", "alt": "Sponsor 8" }
+  ]

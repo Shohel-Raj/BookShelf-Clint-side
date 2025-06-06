@@ -2,13 +2,14 @@ import React, { Suspense, use } from 'react';
 import Slider from '../Component/Slider/Slider';
 import PopularBookCard from '../Component/PopularBook/PopularBookCard';
 import CatagoryCard from '../Component/CatagoryCard/CatagoryCard';
+import SponsorSec from '../Component/Sponsor/SponsorSec';
 
 
 const promisecard = fetch('/Catagory.json').then(res => res.json())
 
 const Home = () => {
     const catagorydata= use(promisecard)
-   console.log(catagorydata);
+
 
     return (
         <div>
@@ -51,6 +52,12 @@ const Home = () => {
                         </Suspense>
                         
                     </div>
+                </div>
+            </div>
+
+            <div className='bg-[#f4f7f9]'>
+                <div className=' w-11/12 md:w-10/12 mx-auto py-6'>
+                    <SponsorSec></SponsorSec>
                 </div>
             </div>
 
