@@ -82,7 +82,7 @@ const router = createBrowserRouter([
                 </PageAnim>
             },
             {
-                path: "/updatebook",
+                path: "/updatebook/:id",
                 element: <PageAnim>
                     <PrivateRoute>
                     <UpdateBook></UpdateBook>

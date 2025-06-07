@@ -3,9 +3,9 @@ import { AuthContext } from '../Contexts/AuthContext';
 
 const AddPlants = () => {
 
-    useEffect(()=>{
-            document.title=`Plant Care | Add Plant`
-        },[])
+    useEffect(() => {
+        document.title = `${import.meta.env.VITE_site_name} | Add Book`
+    }, [])
 
     const { user } = use(AuthContext);
 
