@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "review": "Books Shelf is my go-to platform for discovering new reads and connecting with fellow book lovers.",
+    "name_of_reviewer": "Alice Johnson",
+    "designation": "Literature Professor"
+  },
+  {
+    "id": 2,
+    "review": "An incredible resource for students and educators alike. The curated lists are especially helpful.",
+    "name_of_reviewer": "Michael Smith",
+    "designation": "High School Teacher"
+  },
+  {
+    "id": 3,
+    "review": "A beautifully designed site with a strong sense of community. I love the recommendations!",
+    "name_of_reviewer": "Samantha Lee",
+    "designation": "Book Blogger"
+  },
+  {
+    "id": 4,
+    "review": "As an author, I appreciate how Books Shelf promotes indie writers and helps readers find our work.",
+    "name_of_reviewer": "David Chen",
+    "designation": "Author"
+  },
+  {
+    "id": 5,
+    "review": "A must-have site for any serious reader. The interface is clean, and the content is top-notch.",
+    "name_of_reviewer": "Priya Kapoor",
+    "designation": "Publishing Consultant"
+  },
+  {
+    "id": 6,
+    "review": "Books Shelf makes book discovery so much fun. I’ve found some real hidden gems here.",
+    "name_of_reviewer": "Mark Peterson",
+    "designation": "Freelance Editor"
+  },
+  {
+    "id": 7,
+    "review": "I love how easy it is to browse by genre and find books tailored to my taste.",
+    "name_of_reviewer": "Natalie Gomez",
+    "designation": "College Student"
+  },
+  {
+    "id": 8,
+    "review": "The reviews and ratings from other users help me decide what to read next — very useful!",
+    "name_of_reviewer": "Ravi Malhotra",
+    "designation": "Software Engineer & Avid Reader"
+  },
+  {
+    "id": 9,
+    "review": "Great platform with thoughtful features for both casual and serious readers.",
+    "name_of_reviewer": "Julia Roberts",
+    "designation": "Librarian"
+  },
+  {
+    "id": 10,
+    "review": "Books Shelf has reignited my passion for reading. It’s more than a website — it’s a community.",
+    "name_of_reviewer": "Omar Khalid",
+    "designation": "Creative Writer"
+  }
+]

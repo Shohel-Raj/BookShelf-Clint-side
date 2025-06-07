@@ -1,8 +1,9 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router';
 import { ToastContainer } from 'react-toastify';
-import Navbar from '../assets/SharedComponent/Navbar';
+
 import { AnimatePresence } from 'motion/react';
+import Navbar from '../Component/SharedComponent/Navbar';
 
 const RootLayout = () => {
     const location = useLocation();

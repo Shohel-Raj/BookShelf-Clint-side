@@ -10,13 +10,15 @@ import AddBook from "../Pages/AddBook";
 import LoginSignIn from "../Pages/LoginSignIn";
 import SignIn from "../Component/LoginSignIn/SignIn";
 import UpdateBook from "../Pages/UpdateBook";
-import PageAnim from "../assets/SharedComponent/PageAnim";
 import BookDetaills from "../Pages/BookDetaills";
+import PageAnim from "../Component/SharedComponent/PageAnim";
+import Error from "../Pages/Error";
 
 const router = createBrowserRouter([
     {
         path: "/",
         Component: RootLayout,
+        errorElement:<Error></Error>,
         children: [
             {
                 index: true,
