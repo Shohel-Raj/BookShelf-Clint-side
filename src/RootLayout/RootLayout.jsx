@@ -4,6 +4,9 @@ import { ToastContainer } from 'react-toastify';
 
 import { AnimatePresence } from 'motion/react';
 import Navbar from '../Component/SharedComponent/Navbar';
+import Footer from '../Component/SharedComponent/Footer/Footer';
+import Lower from '../Component/SharedComponent/Footer/Lower';
+
 
 const RootLayout = () => {
     const location = useLocation();
@@ -20,6 +23,10 @@ const RootLayout = () => {
                 </div>
 
             </AnimatePresence>
+            <div className='bg-[#f4f7f9]'>
+                <Footer></Footer>
+                <Lower></Lower>
+            </div>
 
 
             <ToastContainer />
