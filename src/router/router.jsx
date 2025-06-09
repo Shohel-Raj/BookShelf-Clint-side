@@ -13,6 +13,7 @@ import UpdateBook from "../Pages/UpdateBook";
 import BookDetaills from "../Pages/BookDetaills";
 import PageAnim from "../Component/SharedComponent/PageAnim";
 import Error from "../Pages/Error";
+import Loader from "../Component/Loader/Loader";
 
 const router = createBrowserRouter([
     {
@@ -83,6 +84,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/updatebook/:id",
+                loader:({params})=>fetch(`${import.meta.env.VITE_ApiCall}/book/${params.id}`),
+                hydrateFallbackElement:<Loader></Loader>,
                 element: <PageAnim>
                     <PrivateRoute>
                     <UpdateBook></UpdateBook>

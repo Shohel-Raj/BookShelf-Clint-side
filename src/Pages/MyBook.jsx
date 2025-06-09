@@ -10,6 +10,7 @@ const MyBook = () => {
     const [dataa, setData] = useState([]);
     const navigate = useNavigate();
 
+
     useEffect(() => {
 
 
@@ -58,9 +59,9 @@ const MyBook = () => {
             <div>
                 {
                     dataa.length ? <div>
-                        <div className='my-4'>
-                            <h1 className='font-bold text-2xl'>Your Plant Parade</h1>
-                            <p className='md:w-2/5 italic mt-3'>All the leafy legends you’ve adopted gather here—check in to water, feed, and cheer on every new sprout in your personal jungle!</p>
+                        <div className='space-y-3.5 text-center'>
+                            <h1 className='font-bold text-2xl md:text-3xl uppercase italic mb-3'>Your Book Boulevard</h1>
+                            <p className='md:w-3/4 mx-auto mb-3 small'>All the brilliant books you’ve discovered live here—check in to track, reflect, and celebrate every plot twist in your personal library adventure!</p>
                         </div>
                         <table className="table overflow-x-auto">
                             {/* head */}
@@ -69,8 +70,8 @@ const MyBook = () => {
 
                                     <th>Sl</th>
                                     <th>Name</th>
-                                    <th className='hidden md:flex'>Watering Frequency/Care Level </th>
-                                    <th>Health Status</th>
+                                    <th className='hidden md:flex'>Reading Status</th>
+                                    <th>Book Category</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -88,22 +89,21 @@ const MyBook = () => {
                                                     <div className="avatar">
                                                         <div className="mask mask-squircle h-12 w-12">
                                                             <img
-                                                                src={singledata.image}
+                                                                src={singledata.cover_photo}
                                                                 alt="Avatar Tailwind CSS Component" />
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        <div className="font-bold">{singledata.plantName}</div>
-                                                        <div className="text-sm opacity-50">{singledata.category}</div>
+                                                        <div className="font-bold">Title : {singledata.book_title}</div>
+                                                        <div className="text-sm opacity-50">Author : {singledata.book_author}</div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className='hidden md:flex'>
-                                                {singledata.wateringFrequency}
-                                                <br />
-                                                <span className="badge badge-ghost badge-sm">{singledata.careLevel}</span>
+                                                {singledata.reading_status}
+                                               
                                             </td>
-                                            <td>{singledata.healthStatus}</td>
+                                            <td>{singledata.book_category}</td>
                                             <th >
                                                 <button onClick={() => handleViewDetaills(singledata._id)} className="uppercase btn  mb-1 md:mb-0 btn-xs md:mr-1">Details</button>
                                                 <button onClick={() => handleUpdate(singledata._id)} className="uppercase btn md:mr-1 mb-1 md:mb-0 btn-xs">Update</button>
