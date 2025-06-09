@@ -2,12 +2,14 @@ import React from 'react';
 
 const FaqComponent = () => {
     return (
-        <div>
+        <div
+            
+        >
             <div className="join join-vertical bg-base-100">
                 <div className="collapse collapse-arrow join-item border-base-300 border">
                     <input type="radio" name="my-accordion-4" defaultChecked />
                     <div className="collapse-title font-semibold">How do I create an account?</div>
-                    <div className="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the registration process.</div>
+                    <div className="collapse-content text-sm">Click the "Sign Up/Login" button in the top right corner and follow the registration process.</div>
                 </div>
                 <div className="collapse collapse-arrow join-item border-base-300 border">
                     <input type="radio" name="my-accordion-4" />

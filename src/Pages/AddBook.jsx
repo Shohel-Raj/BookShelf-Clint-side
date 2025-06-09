@@ -1,5 +1,7 @@
 import React, { use, useEffect } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const AddPlants = () => {
 
@@ -15,7 +17,16 @@ const AddPlants = () => {
         const AddPlant = Object.fromEntries(formData.entries());
 
 
-        console.log(AddPlant);
+    
+
+        axios.post(`${import.meta.env.VITE_ApiCall}/addBook`,AddPlant).then(res=>{
+            console.log(res.data);
+            if(res.data.insertedId){
+                toast.success('Book Successfullyy added')
+            }
+        }).catch(error=>{ 
+            toast.error(`${error.massage} found`)
+        })
 
     };
 

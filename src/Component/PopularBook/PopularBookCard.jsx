@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+
+
 const PopularBookCard = () => {
   return (
-    <div className=" rounded-lg overflow-hidden shadow-md bg-white mb-4">
+    <div
+      data-aos="zoom-out-right"
+      data-aos-duration="1000"
+      className=" rounded-lg overflow-hidden shadow-md bg-white mb-4">
       {/* Book Cover */}
       <img
         src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" // Replace with your book image

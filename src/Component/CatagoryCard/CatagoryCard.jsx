@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router';
 
 const CatagoryCard = ({ data }) => {
     const { imgUrl, name } = data;
-    const navigation =useNavigate();
+    const navigation = useNavigate();
 
 
-    const viewCatagory=()=>{
+    const viewCatagory = () => {
 
         navigation('/allbook')
     }
@@ -18,9 +18,11 @@ const CatagoryCard = ({ data }) => {
     return (
         <motion.div
             whileHover='hover'
+            data-aos="zoom-out-left"
+            data-aos-duration="1000"
             className='h-60 overflow-hidden rounded relative shadow-md cursor-pointer'
             onClick={viewCatagory}
-            >
+        >
             {/* Image */}
             <motion.img
                 variants={{
@@ -34,7 +36,7 @@ const CatagoryCard = ({ data }) => {
 
                 <motion.h1
                     variants={{
-                        hover: { scale: 1.5, y:-10, x: 70 }, // scale on hover
+                        hover: { scale: 1.5, y: -10, x: 70 }, // scale on hover
                         initial: { y: 70, x: 0 },
                     }}
                     transition={{ duration: 0.4, ease: 'easeOut' }}

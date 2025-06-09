@@ -7,7 +7,10 @@ import FaqComponent from '../Component/FAQ/FaqComponent';
 import Lottie from 'lottie-react';
 import FaqLottie from '../Component/FAQ/FaqLottie';
 
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 
+ Aos.init();
 
 
 const promisecard = fetch('/Catagory.json').then(res => res.json())

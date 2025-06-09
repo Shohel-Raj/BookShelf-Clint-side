@@ -33,15 +33,15 @@ const Bookshelf = () => {
                     </div>
 
 
-                    <div className='flex justify-between'>
-                        <div className='flex justify-center items-center'>
+                    <div className='flex md:justify-between flex-col md:flex-row'>
+                        <div className='flex justify-center items-center mb-2 md:mb-0'>
                             <p className='font-bold uppercase italic ml-3 mr-3 '>Search by book title</p>
                             <input onChange={handleFilter} className="input w-45" placeholder="Type book title for Search" />
                         </div>
                         <div className='flex gap-4 items-center mb-3.5'>
                             <p className='font-bold uppercase italic'>filtered by reading status</p>
                             <select onChange={handleFilter} value={filter} className="select w-30">
-                                <option disabled>Select what you went</option>
+                                <option >Select what you went</option>
                                 <option>Read</option>
                                 <option>Reading</option>
                                 <option>Want-to-Read</option>
