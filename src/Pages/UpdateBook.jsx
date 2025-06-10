@@ -12,7 +12,7 @@ const UpdateBook = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const upDate = Object.fromEntries(formData.entries());
-        console.log(upDate);
+
 
 
 
