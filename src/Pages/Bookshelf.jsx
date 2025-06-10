@@ -1,18 +1,58 @@
 import React, { useState } from 'react';
 import CatagoryCard from '../Component/CatagoryCard/CatagoryCard';
 import PopularBookCard from '../Component/PopularBook/PopularBookCard';
+import { useEffect } from 'react';
+import { useLoaderData } from 'react-router';
+import EmptyMyBook from '../Component/EmptyMyBook';
+
 
 const Bookshelf = () => {
+
+    const data = useLoaderData()
+
+
+    const [dataa, setData] = useState(data);
     const [filter, setFilter] = useState('');
+    const [search, setSearch] = useState('');
+    console.log(search);
+
+
+    useEffect(() => {
+        document.title = `Plant Care | All Plant`
+
+        let url = `${import.meta.env.VITE_ApiCall}/books`
+
+        if (filter) {
+            url = `${import.meta.env.VITE_ApiCall}/filtered?category=${filter}`
+        }
+
+        if(search){
+            url = `${import.meta.env.VITE_ApiCall}/filtered?search=${search}`
+        }
+
+        // } else (
+        //     url = 'https://plant-care-server-azure.vercel.app/allPlant?order=desc'
+        // )
+
+        fetch(url).then(res => res.json()).then(data => {
+            setData(data);
+        })
+
+
+    }, [filter,search])
 
 
 
     const handleFilter = e => {
         const type = e.target.value;
         setFilter(type)
-        console.log(type);
-    }
 
+    }
+    const handleSearc = e => {
+        const type = e.target.value;
+        setSearch(type)
+
+    }
 
 
 
@@ -36,12 +76,12 @@ const Bookshelf = () => {
                     <div className='flex md:justify-between flex-col md:flex-row'>
                         <div className='flex justify-center items-center mb-2 md:mb-0'>
                             <p className='font-bold uppercase italic ml-3 mr-3 '>Search by book title</p>
-                            <input onChange={handleFilter} className="input w-45" placeholder="Type book title for Search" />
+                            <input onChange={handleSearc} className="input w-45" placeholder="Type book title for Search" />
                         </div>
                         <div className='flex gap-4 items-center mb-3.5'>
                             <p className='font-bold uppercase italic'>filtered by reading status</p>
                             <select onChange={handleFilter} value={filter} className="select w-30">
-                                <option >Select what you went</option>
+                                <option disabled>Select what you went</option>
                                 <option>Read</option>
                                 <option>Reading</option>
                                 <option>Want-to-Read</option>
@@ -55,11 +95,14 @@ const Bookshelf = () => {
 
             <div className='w-11/12 md:w-10/12 mx-auto py-6'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center mb-5 align-middle justify-center'>
-                <PopularBookCard></PopularBookCard>
-                <PopularBookCard></PopularBookCard>
-                <PopularBookCard></PopularBookCard>
-                <PopularBookCard></PopularBookCard>
-            </div>
+
+                    {
+                        dataa.map(cardData => <PopularBookCard key={cardData._id}></PopularBookCard>)
+                    }
+                    {
+                        !!dataa.length==0 && <EmptyMyBook></EmptyMyBook>
+                    }
+                </div>
             </div>
         </>
 

@@ -56,6 +56,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allbook",
+                loader:()=>fetch(`${import.meta.env.VITE_ApiCall}/books`),
+                hydrateFallbackElement:<Loader></Loader>,
                 element: <PageAnim>
                     <Bookshelf></Bookshelf>
                 </PageAnim>
