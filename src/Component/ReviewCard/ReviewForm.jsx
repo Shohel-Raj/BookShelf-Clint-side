@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { use } from 'react';
 import { format } from 'date-fns';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../Contexts/AuthContext';
 
 
 
-const ReviewForm = ({ datas }) => {
+const ReviewForm = ({ datas ,setReview}) => {
 
-    const { _id, userEmail,userName } = datas;
+    const { user } = use(AuthContext);
+
+
+ 
+
+    const { _id } = datas;
 
     const handleReview = (e) => {
         e.preventDefault();
@@ -16,13 +24,19 @@ const ReviewForm = ({ datas }) => {
 
         review.date = today;
         review.book_id = _id;
-        review.user_email = userEmail;
-        review.user_name = userName;
+        review.user_email =user?.email;
+        review.user_name = user?.displayName;
+        setReview(prev => [...prev, review])
 
 
-
-
-        console.log(review);
+        axios.post(`${import.meta.env.VITE_ApiCall}/review`,review).then(res=>{
+        
+                    if(res.data.insertedId){
+                        toast.success('Review added Successfully')
+                    }
+                }).catch(error=>{ 
+                    toast.error(`${error.massage} found`)
+                })
     }
 
     return (

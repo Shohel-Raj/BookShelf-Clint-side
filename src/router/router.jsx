@@ -69,7 +69,9 @@ const router = createBrowserRouter([
                 loader:({params})=>fetch(`${import.meta.env.VITE_ApiCall}/book/${params.id}`),
                 hydrateFallbackElement:<Loader></Loader>,
                 element: <PageAnim>
-                    <BookDetaills></BookDetaills>
+                    <PrivateRoute>
+                        <BookDetaills></BookDetaills>
+                    </PrivateRoute>
                 </PageAnim>
             },
             {

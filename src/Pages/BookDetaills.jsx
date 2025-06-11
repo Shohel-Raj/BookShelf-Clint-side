@@ -1,12 +1,73 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import DetailsCard from '../Component/Viewdetails/DetailsCard';
 import DetailsEmpty from '../Component/Viewdetails/DetailsEmpty';
 import ReviewCard from '../Component/ReviewCard/ReviewCard';
 import ReviewForm from '../Component/ReviewCard/ReviewForm';
+import axios from 'axios';
+import EmptyReview from '../Component/ReviewCard/EmptyReview';
+import Swal from 'sweetalert2';
 
 const BookDetaills = () => {
     const datas = useLoaderData();
+    const [review, setReview] = useState([])
+    const [reviewed, setReviewed] = useState(false);
+
+
+
+
+    useEffect(() => {
+
+
+
+
+
+        axios.get(`${import.meta.env.VITE_ApiCall}/review/${datas._id}`).then(res => {
+            setReview(res.data);
+        }).catch(error => {
+            console.log(`${error.code} error found`);
+        })
+
+
+
+
+    }, [datas])
+
+    const handleDelet = (id) => {
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`${import.meta.env.VITE_ApiCall}/review/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json()).then((data => {
+                        console.log(data);
+
+                        if (data.deletedCount) {
+                            const remainigData = review.filter(d => d._id !== id);
+                            setReview(remainigData)
+                            setReviewed(false);
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Plant has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    }))
+
+            }
+        });
+
+    }
 
 
     return (
@@ -24,10 +85,11 @@ const BookDetaills = () => {
                     }
 
 
-
+                   
                 </div>
-            </div>
 
+
+            </div>
             <div className='w-11/12 md:w-10/12 mx-auto py-6'>
                 <div className='text-center my-3.5'>
                     <h1 className='font-bold text-2xl md:text-3xl uppercase italic mb-3'>See what readers are saying about this book.</h1>
@@ -38,16 +100,25 @@ const BookDetaills = () => {
                 <div>
                     <h1 className='font-bold text-2xl md:text-2xl uppercase italic mb-3'>reviews are :</h1>
                     <hr className='border-t-1 border-dashed mb-3.5' />
-
-                    <ReviewCard></ReviewCard>
-                    <ReviewCard></ReviewCard>
+                    {
+                        review.length > 0 ? review?.map(rev => <ReviewCard key={rev?._id} rev={rev} setReview={setReview} handleDelet={handleDelet} setReviewed={setReviewed}></ReviewCard>) : <EmptyReview></EmptyReview>
+                    }
+                    {/* <ReviewCard></ReviewCard>
+                    <ReviewCard></ReviewCard> */}
 
                 </div>
-                <ReviewForm datas={datas}></ReviewForm>
-
 
 
             </div>
+
+
+            {
+                !reviewed && <><div className='w-11/12 md:w-10/12 mx-auto py-6'>
+                    <h1 className='font-bold text-2xl md:text-2xl uppercase italic mb-3'>please add your review :</h1>
+                    <hr className='border-t-1 border-dashed mb-3.5' />
+                    <ReviewForm datas={datas} setReview={setReview}></ReviewForm>
+                </div></>
+            }
         </>
     );
 };

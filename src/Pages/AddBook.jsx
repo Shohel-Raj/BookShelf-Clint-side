@@ -21,7 +21,7 @@ const AddPlants = () => {
         axios.post(`${import.meta.env.VITE_ApiCall}/addBook`,AddPlant).then(res=>{
 
             if(res.data.insertedId){
-                toast.success('Book Successfullyy added')
+                toast.success('Book Successfully added')
             }
         }).catch(error=>{ 
             toast.error(`${error.massage} found`)

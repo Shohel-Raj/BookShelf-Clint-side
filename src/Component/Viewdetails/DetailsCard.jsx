@@ -25,9 +25,11 @@ const DetailsCard = ({ data }) => {
     const handleUpdate = () => {
 
 
-        if (user.email !== userEmail) {
+        if (user?.email !== userEmail) {
+       
 
             setUpvote(prev => parseInt(prev, 10) + 1);
+
         }
         if (user.email == userEmail) {
 
@@ -45,6 +47,7 @@ const DetailsCard = ({ data }) => {
         axios.patch(`${import.meta.env.VITE_ApiCall}/book/${_id}`, upDate).then(res => {
             if (res.data.modifiedCount) {
                 toast.success('Upvote Successfuly')
+
             }
         }).catch(error => {
             toast.error(`${error.massage} found try again`)
@@ -68,7 +71,7 @@ const DetailsCard = ({ data }) => {
                             <h4 className='flex gap-1.5'>Book Author : <p>{book_author}</p></h4>
                             <h4 className='flex gap-1.5'>Reading Status : <p>{reading_status}</p></h4>
                             <h4 className='flex gap-1.5'>Total Page : <p>{total_page}</p></h4>
-                            <h4 className='flex gap-1.5'>Details : <p>{book_overview}</p></h4>
+                            <h4 className='flex gap-1.5 '><p className='w-20'>Details :</p> <p>{book_overview}</p></h4>
                             <h4 className='flex gap-1.5'>Upvote : <p>{upvotestate} </p></h4>
                         </div>
                         <div className='space-y-2 mt-2.5'>
