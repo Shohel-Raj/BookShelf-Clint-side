@@ -17,9 +17,11 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
     const { rewiev, _id, user_name, date, user_email } = rev;
 
 
-
+    // setShowReview(rewiev)
 
     useEffect(() => {
+
+
         if (user?.email === user_email) {
             setReviewed(true)
         }
@@ -28,7 +30,7 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
         if (closed && modalRef.current) {
             modalRef.current.close();
         }
-    }, [setReviewed, user, user_email, closed])
+    }, [setReviewed, user, user_email, closed,])
 
 
 
@@ -37,20 +39,22 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
         document.getElementById('my_modal_1').showModal()
     }
     const handleUpdateModal = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const formData = new FormData(e.target);
         const updateReview = Object.fromEntries(formData.entries());
         const today = format(new Date(), 'dd-MM-yyyyy'); // or any format you prefer
 
 
         updateReview.date = today;
+        // updateReview.user_email =user?.email;
+        // updateReview.user_name = user?.displayName;
 
 
 
 
-        axios.put(`${import.meta.env.VITE_ApiCall}/review/${rev?._id}`, updateReview).then(res => {
+        axios.patch(`${import.meta.env.VITE_ApiCall}/review/${rev?._id}`, updateReview).then(res => {
             if (res.data.modifiedCount) {
-               
+
                 toast.success('Review Update Successfuly');
 
                 setClosed(true)
@@ -84,7 +88,10 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
 
                 </div>
                 <div className="p-4 space-y-2 text-sm">
-                    <p>{rewiev}</p>
+                    <p>
+                        {rewiev}
+                       
+                    </p>
 
                     {
                         user?.email === user_email && <>

@@ -7,11 +7,15 @@ import ReviewForm from '../Component/ReviewCard/ReviewForm';
 import axios from 'axios';
 import EmptyReview from '../Component/ReviewCard/EmptyReview';
 import Swal from 'sweetalert2';
+import ReadStatus from '../Component/Stepper/ReadStatus';
+import { toast } from 'react-toastify';
 
 const BookDetaills = () => {
     const datas = useLoaderData();
     const [review, setReview] = useState([])
     const [reviewed, setReviewed] = useState(false);
+    const [readingStatus, setReadingStatus] = useState('')
+
 
 
 
@@ -25,7 +29,7 @@ const BookDetaills = () => {
         axios.get(`${import.meta.env.VITE_ApiCall}/review/${datas._id}`).then(res => {
             setReview(res.data);
         }).catch(error => {
-            console.log(`${error.code} error found`);
+            toast.error(`${error.code} error found`);
         })
 
 
@@ -81,11 +85,16 @@ const BookDetaills = () => {
                     </div>
 
                     {
-                        datas ? <DetailsCard data={datas}></DetailsCard> : <DetailsEmpty></DetailsEmpty>
+                        datas ? <DetailsCard data={datas} readingStatus={readingStatus}></DetailsCard> : <DetailsEmpty></DetailsEmpty>
                     }
 
 
-                   
+                    <div className='text-center my-3.5'>
+                        <h1 className='font-bold text-2xl md:text-3xl uppercase italic mb-3'>Update your Reading Track</h1>
+                        <hr className='border-t-1 border-dashed mb-3.5' />
+
+                        <ReadStatus datas={datas}setReadingStatus={setReadingStatus}></ReadStatus>
+                    </div>
                 </div>
 
 

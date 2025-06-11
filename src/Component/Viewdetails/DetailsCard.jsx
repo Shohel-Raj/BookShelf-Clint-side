@@ -6,14 +6,14 @@ import axios from 'axios';
 
 import { toast } from 'react-toastify';
 
-const DetailsCard = ({ data }) => {
+const DetailsCard = ({ data,readingStatus }) => {
 
     const [upvotestate, setUpvote] = useState();
 
 
     const { user } = use(AuthContext);
 
-    const { _id, userName, userEmail, book_author, upvote, total_page, reading_status, cover_photo, book_title, book_overview, book_category } = data;
+    const { _id, userName, userEmail, book_author, upvote, total_page,  cover_photo, book_title, book_overview, book_category } = data;
 
     useEffect(() => {
         document.title = `${import.meta.env.VITE_site_name} | BookDetails`
@@ -69,7 +69,7 @@ const DetailsCard = ({ data }) => {
                             <h4 className='flex gap-1.5'>Name : <p>{book_title}</p></h4>
                             <h4 className='flex gap-1.5'>Category : <p>{book_category}</p></h4>
                             <h4 className='flex gap-1.5'>Book Author : <p>{book_author}</p></h4>
-                            <h4 className='flex gap-1.5'>Reading Status : <p>{reading_status}</p></h4>
+                            <h4 className='flex gap-1.5'>Reading Status : <p>{readingStatus}</p></h4>
                             <h4 className='flex gap-1.5'>Total Page : <p>{total_page}</p></h4>
                             <h4 className='flex gap-1.5 '><p className='w-20'>Details :</p> <p>{book_overview}</p></h4>
                             <h4 className='flex gap-1.5'>Upvote : <p>{upvotestate} </p></h4>
