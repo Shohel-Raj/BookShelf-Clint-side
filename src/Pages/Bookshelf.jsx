@@ -18,7 +18,7 @@ const Bookshelf = () => {
 
 
     useEffect(() => {
-        document.title = `Plant Care | All Plant`
+        document.title = `BOOKSHELF | All BOOK`
 
         let url = `${import.meta.env.VITE_ApiCall}/books`
 
@@ -94,10 +94,10 @@ const Bookshelf = () => {
             </div>
 
             <div className='w-11/12 md:w-10/12 mx-auto py-6'>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center mb-5 align-middle justify-center'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center mb-5 align-middle justify-center basis-1 grow'>
 
                     {
-                        dataa.map(cardData => <PopularBookCard key={cardData._id}></PopularBookCard>)
+                        dataa.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
                     }
                     {
                         !!dataa.length==0 && <EmptyMyBook></EmptyMyBook>

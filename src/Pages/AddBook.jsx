@@ -15,12 +15,11 @@ const AddPlants = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const AddPlant = Object.fromEntries(formData.entries());
-
-
+        AddPlant.upvote = parseInt(AddPlant.upvote, 10);
     
 
         axios.post(`${import.meta.env.VITE_ApiCall}/addBook`,AddPlant).then(res=>{
-            console.log(res.data);
+
             if(res.data.insertedId){
                 toast.success('Book Successfullyy added')
             }

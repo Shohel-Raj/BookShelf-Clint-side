@@ -23,6 +23,8 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                loader:()=>fetch(`${import.meta.env.VITE_ApiCall}/hightestUpvoto`),
+                hydrateFallbackElement:<Loader></Loader>,
                 element: <PageAnim>
                     <Home></Home>
                 </PageAnim>
@@ -64,6 +66,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/bookdetails/:id",
+                loader:({params})=>fetch(`${import.meta.env.VITE_ApiCall}/book/${params.id}`),
+                hydrateFallbackElement:<Loader></Loader>,
                 element: <PageAnim>
                     <BookDetaills></BookDetaills>
                 </PageAnim>

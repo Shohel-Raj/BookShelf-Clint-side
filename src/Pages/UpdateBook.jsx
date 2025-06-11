@@ -12,6 +12,7 @@ const UpdateBook = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const upDate = Object.fromEntries(formData.entries());
+        upDate.upvote = parseInt(upDate.upvote, 10);
 
 
 
@@ -22,7 +23,7 @@ const UpdateBook = () => {
             } else if (res.data.matchedCount) {
                 toast.warn(`You didn't change  any data yet`)
             }
-        }).catch(error=>{
+        }).catch(error => {
             toast.error(`${error.massage} found try again`)
         })
     }
@@ -146,6 +147,7 @@ const UpdateBook = () => {
                         <div>
                             <label className="block font-medium mb-1">Upvote</label>
                             <input
+                                readOnly
                                 type="number"
                                 name="upvote"
                                 defaultValue={upvote}

@@ -3,33 +3,40 @@ import { Link } from 'react-router';
 
 
 
-const PopularBookCard = () => {
+const PopularBookCard = ({cardData}) => {
+
+
+  const {book_author,book_category,book_overview,book_title,cover_photo,upvote,_id}=cardData;
+
+
   return (
     <div
       data-aos="zoom-out-right"
       data-aos-duration="1000"
-      className=" rounded-lg overflow-hidden shadow-md bg-white mb-4">
+      className="flex flex-col rounded-lg overflow-hidden shadow-md bg-white mb-4 basis-full grow">
       {/* Book Cover */}
       <img
-        src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" // Replace with your book image
+        src={cover_photo} // Replace with your book image
         alt="Book Cover"
         className="w-full h-64 object-cover"
       />
 
       {/* Book Info */}
       <div className="p-4">
-        <h2 className="text-lg font-semibold text-gray-900">The Silent Patient</h2>
-        <p className="text-sm text-gray-600 mt-1">
-          A psychological thriller about a woman’s act of violence against her husband—and the therapist obsessed with uncovering why.
-        </p>
+        <h2 className="text-lg font-semibold text-gray-900">{book_title}</h2>
+        <div className='flex justify-between my-1.5'>
+          <p className='badge badge-outline badge-primary'>{book_author}</p>
+          <p className='badge badge-soft badge-accent'>{book_category}</p>
+        </div>
+        <p className="text-sm text-gray-600 mt-1">{book_overview} </p>
 
 
 
         <div className="mt-4 flex gap-2">
-          <button className="bg-black text-white text-sm px-4 py-2 rounded-md hover:bg-gray-800">
-            UpVote
+          <button className="bg-[#34eb74] text-white text-sm px-4 py-2 rounded-md hover:bg-gray-800 cursor-pointer">
+            UpVote {upvote}
           </button>
-          <Link to={`/bookdetails/:id`} className="text-sm text-black px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-100">
+          <Link to={`/bookdetails/${_id}`} className="text-sm text-black px-4 py-2 rounded-md border border-gray-300 cursor-pointer hover:bg-gray-100">
             View Details
           </Link>
         </div>

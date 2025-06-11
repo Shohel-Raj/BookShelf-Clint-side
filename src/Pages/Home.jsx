@@ -9,6 +9,7 @@ import FaqLottie from '../Component/FAQ/FaqLottie';
 
 import 'aos/dist/aos.css';
 import Aos from 'aos';
+import { useLoaderData } from 'react-router';
 
  Aos.init();
 
@@ -18,6 +19,7 @@ const promisecard = fetch('/Catagory.json').then(res => res.json())
 const Home = () => {
     const catagorydata = use(promisecard)
 
+    const data=useLoaderData();
 
     return (
         <div>
@@ -33,10 +35,11 @@ const Home = () => {
                     </div>
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center mb-5 align-middle justify-center'>
-                        <PopularBookCard></PopularBookCard>
-                        <PopularBookCard></PopularBookCard>
-                        <PopularBookCard></PopularBookCard>
-                        <PopularBookCard></PopularBookCard>
+                        
+
+                        {
+                            data.map(cardData=><PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
+                        }
                     </div>
                 </div>
             </div>
