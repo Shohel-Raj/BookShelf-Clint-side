@@ -14,13 +14,17 @@ const MyBook = () => {
 
     useEffect(() => {
 
+        const token = user.accessToken;
 
         document.title = `${import.meta.env.VITE_site_name} | My Book`
 
         axios.get(`${import.meta.env.VITE_ApiCall}/books`, {
             params: {
                 emailParams: user.email
-            }
+            },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
         }).then(res => {
             setData(res.data);
         }).catch(error => {
@@ -39,40 +43,40 @@ const MyBook = () => {
         return <Loader></Loader>
     }
 
-     const handleDelet = (id) => {
+    const handleDelet = (id) => {
 
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-    
-                    fetch(`${import.meta.env.VITE_ApiCall}/book/${id}`, {
-                        method: 'DELETE'
-                    })
-                        .then(res => res.json()).then((data => {
-                            console.log(data);
-    
-                            if (data.deletedCount) {
-                                const remainigData = dataa.filter(d => d._id !== id);
-                                setData(remainigData)
-                                Swal.fire({
-                                    title: "Deleted!",
-                                    text: "Your Plant has been deleted.",
-                                    icon: "success"
-                                });
-                            }
-                        }))
-    
-                }
-            });
-    
-        }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`${import.meta.env.VITE_ApiCall}/book/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json()).then((data => {
+                        console.log(data);
+
+                        if (data.deletedCount) {
+                            const remainigData = dataa.filter(d => d._id !== id);
+                            setData(remainigData)
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Plant has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    }))
+
+            }
+        });
+
+    }
 
     const handleViewDetaills = (id) => {
 
@@ -131,7 +135,7 @@ const MyBook = () => {
                                             </td>
                                             <td className='hidden md:flex'>
                                                 {singledata.reading_status}
-                                               
+
                                             </td>
                                             <td>{singledata.book_category}</td>
                                             <th >

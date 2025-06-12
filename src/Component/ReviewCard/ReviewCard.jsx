@@ -39,6 +39,7 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
         document.getElementById('my_modal_1').showModal()
     }
     const handleUpdateModal = (e) => {
+
         // e.preventDefault();
         const formData = new FormData(e.target);
         const updateReview = Object.fromEntries(formData.entries());
@@ -90,12 +91,14 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
                 <div className="p-4 space-y-2 text-sm">
                     <p>
                         {rewiev}
-                       
+
                     </p>
 
                     {
                         user?.email === user_email && <>
-                            <button onClick={() => handleUpdate(rev?._id)} className="uppercase btn md:mr-1 mb-1 md:mb-0 btn-xs">Update</button>
+                            <button onClick={() => handleUpdate(rev?._id)} className="uppercase mr-1.5 btn btn-xs">Update</button>
+                            <button onClick={() => handleDelet(rev?._id)} className="uppercase btn btn-xs">Delete</button>
+
                             {/* Open the modal using document.getElementById('ID').showModal() method */}
 
                             <dialog id="my_modal_1" className="modal" ref={modalRef}>
@@ -118,7 +121,7 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
                                     </div>
                                 </div>
                             </dialog>
-                            <button onClick={() => handleDelet(rev?._id)} className="uppercase btn btn-xs">Delete</button>
+
                         </>
                     }
 

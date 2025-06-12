@@ -16,7 +16,7 @@ const ReviewForm = ({ datas ,setReview}) => {
     const { _id } = datas;
 
     const handleReview = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const formData = new FormData(e.target);
         const review = Object.fromEntries(formData.entries());
         const today = format(new Date(), 'dd-MM-yyyyy'); // or any format you prefer

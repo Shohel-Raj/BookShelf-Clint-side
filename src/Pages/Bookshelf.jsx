@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import CatagoryCard from '../Component/CatagoryCard/CatagoryCard';
 import PopularBookCard from '../Component/PopularBook/PopularBookCard';
 import { useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import EmptyMyBook from '../Component/EmptyMyBook';
+import { AuthContext } from '../Contexts/AuthContext';
 
 
 const Bookshelf = () => {
 
-    const data = useLoaderData()
+    const data = useLoaderData();
+    const { user, loading } = use(AuthContext);
+
 
 
     const [dataa, setData] = useState(data);
@@ -17,8 +20,13 @@ const Bookshelf = () => {
 
 
 
+
+
     useEffect(() => {
         document.title = `BOOKSHELF | All BOOK`
+
+
+        const token = user?.accessToken;
 
         let url = `${import.meta.env.VITE_ApiCall}/books`
 
@@ -26,7 +34,7 @@ const Bookshelf = () => {
             url = `${import.meta.env.VITE_ApiCall}/filtered?category=${filter}`
         }
 
-        if(search){
+        if (search) {
             url = `${import.meta.env.VITE_ApiCall}/filtered?search=${search}`
         }
 
@@ -34,12 +42,17 @@ const Bookshelf = () => {
         //     url = 'https://plant-care-server-azure.vercel.app/allPlant?order=desc'
         // )
 
-        fetch(url).then(res => res.json()).then(data => {
+        fetch(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+
+        }).then(res => res.json()).then(data => {
             setData(data);
         })
 
 
-    }, [filter,search])
+    }, [filter, search, user])
 
 
 
@@ -53,7 +66,10 @@ const Bookshelf = () => {
         setSearch(type)
 
     }
+    if (loading) {
 
+        return <Loader></Loader>
+    }
 
 
     return (
@@ -97,10 +113,10 @@ const Bookshelf = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center mb-5 align-middle justify-center basis-1 grow'>
 
                     {
-                        dataa.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
+                        dataa?.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
                     }
                     {
-                        !!dataa.length==0 && <EmptyMyBook></EmptyMyBook>
+                        !!dataa?.length == 0 && <EmptyMyBook></EmptyMyBook>
                     }
                 </div>
             </div>

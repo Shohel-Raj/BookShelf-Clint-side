@@ -72,7 +72,7 @@ const AddPlants = () => {
                                 required
                                 className="w-full border rounded p-2"
                             >
-                                <option value="" selected disabled>Select Category</option>
+                                <option value="" defaultChecked disabled>Select Category</option>
                                 <option value="Fantasy">Fantasy</option>
                                 <option value="Fiction">Fiction</option>
                                 <option value="History">History</option>
@@ -89,7 +89,7 @@ const AddPlants = () => {
                                 required
                                 className="w-full border rounded p-2"
                             >
-                                <option value="" selected disabled>Select Reading Status</option>
+                                <option value="" defaultChecked disabled>Select Reading Status</option>
                                 <option value="Read">Read</option>
                                 <option value="Reading">Reading</option>
                                 <option value="Want-to-Read">Want-to-Read</option>

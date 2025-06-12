@@ -15,16 +15,18 @@ import PageAnim from "../Component/SharedComponent/PageAnim";
 import Error from "../Pages/Error";
 import Loader from "../Component/Loader/Loader";
 
+
+
 const router = createBrowserRouter([
     {
         path: "/",
         Component: RootLayout,
-        errorElement:<Error></Error>,
+        errorElement: <Error></Error>,
         children: [
             {
                 index: true,
-                loader:()=>fetch(`${import.meta.env.VITE_ApiCall}/hightestUpvoto`),
-                hydrateFallbackElement:<Loader></Loader>,
+                loader: () => fetch(`${import.meta.env.VITE_ApiCall}/hightestUpvoto`),
+                hydrateFallbackElement: <Loader></Loader>,
                 element: <PageAnim>
                     <Home></Home>
                 </PageAnim>
@@ -46,28 +48,28 @@ const router = createBrowserRouter([
             },
             {
                 path: "/loginSignInPage",
-                element:<PageAnim>
+                element: <PageAnim>
                     <LoginSignIn></LoginSignIn>
                 </PageAnim>
             },
             {
                 path: "/signin",
-                element:<PageAnim>
+                element: <PageAnim>
                     <SignIn></SignIn>
                 </PageAnim>
             },
             {
                 path: "/allbook",
-                loader:()=>fetch(`${import.meta.env.VITE_ApiCall}/books`),
-                hydrateFallbackElement:<Loader></Loader>,
+                // loader:()=>fetch(`${import.meta.env.VITE_ApiCall}/books`),
+                // hydrateFallbackElement:<Loader></Loader>,
                 element: <PageAnim>
                     <Bookshelf></Bookshelf>
                 </PageAnim>
             },
             {
                 path: "/bookdetails/:id",
-                loader:({params})=>fetch(`${import.meta.env.VITE_ApiCall}/book/${params.id}`),
-                hydrateFallbackElement:<Loader></Loader>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_ApiCall}/book/${params.id}`),
+                hydrateFallbackElement: <Loader></Loader>,
                 element: <PageAnim>
                     <PrivateRoute>
                         <BookDetaills></BookDetaills>
@@ -86,18 +88,18 @@ const router = createBrowserRouter([
                 path: "/addbook",
                 element: <PageAnim>
                     <PrivateRoute>
-                    <AddBook></AddBook>
-                </PrivateRoute>
+                        <AddBook></AddBook>
+                    </PrivateRoute>
                 </PageAnim>
             },
             {
                 path: "/updatebook/:id",
-                loader:({params})=>fetch(`${import.meta.env.VITE_ApiCall}/book/${params.id}`),
-                hydrateFallbackElement:<Loader></Loader>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_ApiCall}/book/${params.id}`),
+                hydrateFallbackElement: <Loader></Loader>,
                 element: <PageAnim>
                     <PrivateRoute>
-                    <UpdateBook></UpdateBook>
-                </PrivateRoute>
+                        <UpdateBook></UpdateBook>
+                    </PrivateRoute>
                 </PageAnim>
             },
         ]

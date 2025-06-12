@@ -24,7 +24,7 @@ const Profile = () => {
     useEffect(() => {
 
 
-
+        const token = user?.accessToken;
 
         // axios.get(`${import.meta.env.VITE_ApiCall}/books`).then(res => {
 
@@ -33,28 +33,44 @@ const Profile = () => {
         //     toast.error(error.massage);
         // })
 
-        axios.get(`${import.meta.env.VITE_ApiCall}/filtered?catagories=${encodeURIComponent('Fantasy')}&emailParams=${encodeURIComponent(user.email)}`).then(res => {
+        axios.get(`${import.meta.env.VITE_ApiCall}/filtered?catagories=${encodeURIComponent('Fantasy')}&emailParams=${encodeURIComponent(user.email)}`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
 
             setFantacy(res.data);
         }).catch(error => {
             toast.error(error.massage);
         })
 
-        axios.get(`${import.meta.env.VITE_ApiCall}/filtered?catagories=${encodeURIComponent('Fiction')}&emailParams=${encodeURIComponent(user.email)}`).then(res => {
+        axios.get(`${import.meta.env.VITE_ApiCall}/filtered?catagories=${encodeURIComponent('Fiction')}&emailParams=${encodeURIComponent(user.email)}`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
 
             setData(res.data);
         }).catch(error => {
             toast.error(error.massage);
         })
 
-        axios.get(`${import.meta.env.VITE_ApiCall}/filtered?catagories=${encodeURIComponent('History')}&emailParams=${encodeURIComponent(user.email)}`).then(res => {
+        axios.get(`${import.meta.env.VITE_ApiCall}/filtered?catagories=${encodeURIComponent('History')}&emailParams=${encodeURIComponent(user.email)}`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
 
             setHistory(res.data);
         }).catch(error => {
             toast.error(error.massage);
         })
 
-        axios.get(`${import.meta.env.VITE_ApiCall}/filtered?catagories=${encodeURIComponent('Poetry')}&emailParams=${encodeURIComponent(user.email)}`).then(res => {
+        axios.get(`${import.meta.env.VITE_ApiCall}/filtered?catagories=${encodeURIComponent('Poetry')}&emailParams=${encodeURIComponent(user.email)}`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
 
             setPoetry(res.data);
         }).catch(error => {

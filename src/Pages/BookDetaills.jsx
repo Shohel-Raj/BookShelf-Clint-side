@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import DetailsCard from '../Component/Viewdetails/DetailsCard';
 import DetailsEmpty from '../Component/Viewdetails/DetailsEmpty';
@@ -9,25 +9,32 @@ import EmptyReview from '../Component/ReviewCard/EmptyReview';
 import Swal from 'sweetalert2';
 import ReadStatus from '../Component/Stepper/ReadStatus';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../Contexts/AuthContext';
 
 const BookDetaills = () => {
+    const { user, loading, } = use(AuthContext);
+
     const datas = useLoaderData();
-    const [review, setReview] = useState([])
+    const [review, setReview] = useState([]);
     const [reviewed, setReviewed] = useState(false);
     const [readingStatus, setReadingStatus] = useState('')
 
 
 
 
-
     useEffect(() => {
 
+        const token = user.accessToken;
 
 
 
-
-        axios.get(`${import.meta.env.VITE_ApiCall}/review/${datas._id}`).then(res => {
+        axios.get(`${import.meta.env.VITE_ApiCall}/review/${datas._id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }).then(res => {
             setReview(res.data);
+
         }).catch(error => {
             toast.error(`${error.code} error found`);
         })
@@ -35,10 +42,9 @@ const BookDetaills = () => {
 
 
 
-    }, [datas])
+    }, [datas, user])
 
     const handleDelet = (id) => {
-        console.log(id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -50,11 +56,14 @@ const BookDetaills = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
+                if (id == undefined) {
+                    return toast.error('id not found,Reload page and try Again')
+                }
+
                 fetch(`${import.meta.env.VITE_ApiCall}/review/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json()).then((data => {
-                        console.log(data);
 
                         if (data.deletedCount) {
                             const remainigData = review.filter(d => d._id !== id);
@@ -72,7 +81,10 @@ const BookDetaills = () => {
         });
 
     }
+    if (loading) {
 
+        return <Loader></Loader>
+    }
 
     return (
         <>
@@ -93,7 +105,7 @@ const BookDetaills = () => {
                         <h1 className='font-bold text-2xl md:text-3xl uppercase italic mb-3'>Update your Reading Track</h1>
                         <hr className='border-t-1 border-dashed mb-3.5' />
 
-                        <ReadStatus datas={datas}setReadingStatus={setReadingStatus}></ReadStatus>
+                        <ReadStatus datas={datas} setReadingStatus={setReadingStatus}></ReadStatus>
                     </div>
                 </div>
 
@@ -110,10 +122,9 @@ const BookDetaills = () => {
                     <h1 className='font-bold text-2xl md:text-2xl uppercase italic mb-3'>reviews are :</h1>
                     <hr className='border-t-1 border-dashed mb-3.5' />
                     {
-                        review.length > 0 ? review?.map(rev => <ReviewCard key={rev?._id} rev={rev} setReview={setReview} handleDelet={handleDelet} setReviewed={setReviewed}></ReviewCard>) : <EmptyReview></EmptyReview>
+                        review.length > 0 ? review?.map((rev, index) => <ReviewCard key={rev?._id || index} rev={rev} setReview={setReview} handleDelet={handleDelet} setReviewed={setReviewed}></ReviewCard>) : <EmptyReview></EmptyReview>
                     }
-                    {/* <ReviewCard></ReviewCard>
-                    <ReviewCard></ReviewCard> */}
+
 
                 </div>
 
