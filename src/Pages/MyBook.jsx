@@ -5,6 +5,7 @@ import EmptyMyBook from '../Component/EmptyMyBook';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import Loader from '../Component/Loader/Loader';
 
 const MyBook = () => {
     const { user, loading, } = use(AuthContext);
@@ -31,7 +32,7 @@ const MyBook = () => {
             toast.error(error.massage);
         })
 
-        // fetch(`https://localhost/plant?emailParams=${user.email}`).then(res => res.json()).then(data => {
+        // fetch(`https://bookshelf-server-sigma.vercel.app/plant?emailParams=${user.email}`).then(res => res.json()).then(data => {
         // setData(data);
         // })
     }, [user])
@@ -92,7 +93,7 @@ const MyBook = () => {
 
             <div>
                 {
-                    dataa.length ? <div>
+                    dataa?.length ? <div>
                         <div className='space-y-3.5 text-center'>
                             <h1 className='font-bold text-2xl md:text-3xl uppercase italic mb-3'>Your Book Boulevard</h1>
                             <p className='md:w-3/4 mx-auto mb-3 small'>All the brilliant books you’ve discovered live here—check in to track, reflect, and celebrate every plot twist in your personal library adventure!</p>
@@ -153,7 +154,7 @@ const MyBook = () => {
 
                         </table>
                     </div> : <div>
-                        <EmptyMyBook></EmptyMyBook>
+                        <Loader></Loader>
 
                     </div>
                 }

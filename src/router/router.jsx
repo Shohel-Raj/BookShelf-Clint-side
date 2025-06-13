@@ -14,6 +14,7 @@ import BookDetaills from "../Pages/BookDetaills";
 import PageAnim from "../Component/SharedComponent/PageAnim";
 import Error from "../Pages/Error";
 import Loader from "../Component/Loader/Loader";
+import ContactUs from "../Pages/ContactUs";
 
 
 
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
                 path: "/About",
                 element: <PageAnim>
                     <About></About>
+                </PageAnim>
+            },
+            {
+                path: "/Contact",
+                element: <PageAnim>
+                    <ContactUs></ContactUs>
                 </PageAnim>
             },
             {

@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import EmptyMyBook from '../Component/EmptyMyBook';
 import { AuthContext } from '../Contexts/AuthContext';
+import Loader from '../Component/Loader/Loader';
+import { toast } from 'react-toastify';
+import EmptyBookShelf from '../Component/EmptyBookShelf';
 
 
 const Bookshelf = () => {
@@ -17,8 +20,7 @@ const Bookshelf = () => {
     const [dataa, setData] = useState(data);
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('');
-
-
+    const[fatching,setFatching]=useState(true);
 
 
 
@@ -28,31 +30,37 @@ const Bookshelf = () => {
 
         const token = user?.accessToken;
 
-        let url = `${import.meta.env.VITE_ApiCall}/books`
+        if (!loading) {
+            let url = `${import.meta.env.VITE_ApiCall}/books`
 
-        if (filter) {
-            url = `${import.meta.env.VITE_ApiCall}/filtered?category=${filter}`
+            if (filter) {
+                url = `${import.meta.env.VITE_ApiCall}/filtered?category=${filter}`
+            }
+
+            if (search) {
+                url = `${import.meta.env.VITE_ApiCall}/filtered?search=${search}`
+            }
+
+            // } else (
+            //     url = 'https://plant-care-server-azure.vercel.app/allPlant?order=desc'
+            // )
+
+            fetch(url, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
+
+            }).then(res => res.json()).then(data => {
+                setFatching(true);
+                setData(data);
+                setFatching(false)
+            }).catch(error => {
+                toast.error(`${error.code} found`)
+            })
         }
 
-        if (search) {
-            url = `${import.meta.env.VITE_ApiCall}/filtered?search=${search}`
-        }
 
-        // } else (
-        //     url = 'https://plant-care-server-azure.vercel.app/allPlant?order=desc'
-        // )
-
-        fetch(url, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            },
-
-        }).then(res => res.json()).then(data => {
-            setData(data);
-        })
-
-
-    }, [filter, search, user])
+    }, [filter, search, user, loading])
 
 
 
@@ -67,6 +75,10 @@ const Bookshelf = () => {
 
     }
     if (loading) {
+
+        return <Loader></Loader>
+    }
+    if (fatching) {
 
         return <Loader></Loader>
     }
@@ -88,23 +100,28 @@ const Bookshelf = () => {
                         </p>
                     </div>
 
+                    {
+                        user && <>
 
-                    <div className='flex md:justify-between flex-col md:flex-row'>
-                        <div className='flex justify-center items-center mb-2 md:mb-0'>
-                            <p className='font-bold uppercase italic ml-3 mr-3 '>Search by book title</p>
-                            <input onChange={handleSearc} className="input w-45" placeholder="Type book title for Search" />
-                        </div>
-                        <div className='flex gap-4 items-center mb-3.5'>
-                            <p className='font-bold uppercase italic'>filtered by reading status</p>
-                            <select onChange={handleFilter} value={filter} className="select w-30">
-                                <option disabled>Select what you went</option>
-                                <option>Read</option>
-                                <option>Reading</option>
-                                <option>Want-to-Read</option>
-                            </select>
-                        </div>
+                            <div className='flex md:justify-between flex-col md:flex-row'>
+                                <div className='flex justify-center items-center mb-2 md:mb-0'>
+                                    <p className='font-bold uppercase italic ml-3 mr-3 '>Search by book title</p>
+                                    <input onChange={handleSearc} className="input w-45" placeholder="Type book title for Search" />
+                                </div>
+                                <div className='flex gap-4 items-center mb-3.5'>
+                                    <p className='font-bold uppercase italic'>filtered by reading status</p>
+                                    <select onChange={handleFilter} value={filter} className="select w-30">
+                                        <option disabled>Select what you went</option>
+                                        <option>Read</option>
+                                        <option>Reading</option>
+                                        <option>Want-to-Read</option>
+                                    </select>
+                                </div>
 
-                    </div>
+                            </div>
+                        </>
+                    }
+
 
                 </div>
             </div>
@@ -112,12 +129,14 @@ const Bookshelf = () => {
             <div className='w-11/12 md:w-10/12 mx-auto py-6'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center mb-5 align-middle justify-center basis-1 grow'>
 
+
                     {
-                        dataa?.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
+                        !user ? <EmptyBookShelf></EmptyBookShelf> : !!dataa?.length == 0 ? <EmptyMyBook></EmptyMyBook> : <>
+                            {dataa?.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)}
+
+                        </>
                     }
-                    {
-                        !!dataa?.length == 0 && <EmptyMyBook></EmptyMyBook>
-                    }
+                   
                 </div>
             </div>
         </>

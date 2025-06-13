@@ -6,14 +6,14 @@ import axios from 'axios';
 
 import { toast } from 'react-toastify';
 
-const DetailsCard = ({ data,readingStatus }) => {
+const DetailsCard = ({ data, readingStatus }) => {
 
     const [upvotestate, setUpvote] = useState();
 
 
     const { user } = use(AuthContext);
 
-    const { _id, userName, userEmail, book_author, upvote, total_page,  cover_photo, book_title, book_overview, book_category } = data;
+    const { _id, userName, userEmail, book_author, upvote, total_page, cover_photo, book_title, book_overview, book_category } = data;
 
     useEffect(() => {
         document.title = `${import.meta.env.VITE_site_name} | BookDetails`
@@ -23,36 +23,28 @@ const DetailsCard = ({ data,readingStatus }) => {
     }, [upvote])
 
     const handleUpdate = () => {
-
-
-        if (user?.email !== userEmail) {
-       
-
-            setUpvote(prev => parseInt(prev, 10) + 1);
-
-        }
-        if (user.email == userEmail) {
-
-            toast.error(`You can't Upvote your own Book`)
-        }
-
-
-        const upDate = {
-            upvote: parseInt(upvotestate)
-        }
-
-
-
-
-        axios.patch(`${import.meta.env.VITE_ApiCall}/book/${_id}`, upDate).then(res => {
-            if (res.data.modifiedCount) {
-                toast.success('Upvote Successfuly')
-
-            }
-        }).catch(error => {
-            toast.error(`${error.massage} found try again`)
-        })
+    if (user.email === userEmail) {
+        toast.error(`You can't Upvote your own Book`);
+        return;
     }
+
+    const nextUpvote = parseInt(upvotestate || 0, 10) + 1;
+    setUpvote(nextUpvote);
+
+    const upDate = {
+        upvote: nextUpvote
+    };
+
+    axios.patch(`${import.meta.env.VITE_ApiCall}/book/${_id}`, upDate)
+        .then(res => {
+            if (res.data.modifiedCount) {
+                toast.success('Upvoted successfully');
+            }
+        })
+        .catch(error => {
+            toast.error(`${error.message || 'Error'} occurred, try again`);
+        });
+};
 
 
     return (

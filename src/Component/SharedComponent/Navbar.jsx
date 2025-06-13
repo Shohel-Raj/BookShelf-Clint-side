@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import { toast } from 'react-toastify';
+import { FaArrowRightToBracket, FaRightFromBracket } from 'react-icons/fa6';
 
 
 const Navbar = () => {
@@ -34,6 +35,12 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink to="/profile" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'} onClick={() => setIsMenuOpen(false)}>Profile </NavLink>
+            </li>
+            <li>
+                <NavLink to="/About" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'} onClick={() => setIsMenuOpen(false)}>About </NavLink>
+            </li>
+            <li>
+                <NavLink to="/Contact" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'} onClick={() => setIsMenuOpen(false)}>Contact Us </NavLink>
             </li>
         </>
     );
@@ -79,14 +86,15 @@ const Navbar = () => {
                             onClick={handleLogout}
                             className="btn bg-[#34eb74] text-white hover:bg-[#97f7b9] hover:text-black"
                         >
-                            Logout
+                            Logout  <FaRightFromBracket />
+
                         </button>
                     ) : (
                         <Link
                             to="/loginSignInPage"
                             className="btn bg-[#34eb74] text-white hover:bg-[#97f7b9] hover:text-black"
                         >
-                            Login
+                            Login <FaArrowRightToBracket />
                         </Link>
                     )}
                 </div>
@@ -97,14 +105,14 @@ const Navbar = () => {
                         <div className="p-4 flex justify-between items-center border-b shadow-sm">
                             <span className="text-xl font-bold">{import.meta.env.VITE_site_name}</span>
                             <button
-                                className="btn btn-sm btn-ghost"
+                                className="btn btn-sm btn-ghost text-2xl"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 ✕
                             </button>
                         </div>
 
-                        <ul className="menu p-4 space-y-2">{links}</ul>
+                        <ul className="menu  p-4 space-y-2">{links}</ul>
 
                         <div className="p-4">
                             {user ? (
