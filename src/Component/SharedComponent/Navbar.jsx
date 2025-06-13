@@ -49,7 +49,7 @@ const Navbar = () => {
         <>
             <div className="navbar px-0 w-11/12 md:w-10/12 mx-auto">
                 <div className="navbar-start">
-                    <a className="btn btn-ghost px-0 text-xl"><img className='w-[35px]' src='../../../public/book.png' />{import.meta.env.VITE_site_name}</a>
+                    <a className="btn btn-ghost px-0 text-xl font-bold fontLogo items-center justify-center"><img className='w-[30px]' src='../../../public/book.png' />{import.meta.env.VITE_site_name}</a>
                 </div>
 
                 {/* Desktop menu */}

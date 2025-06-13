@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
 
+h1,h2,h3,h4,h5,h6{
+  font-family: "Merriweather", serif;
+}
+.fontLogo{
+  font-family: "Merriweather", serif;
+}
+body{
+  font-family: "Open Sans", sans-serif;
+}
