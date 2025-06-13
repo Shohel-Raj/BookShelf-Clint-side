@@ -1,7 +1,9 @@
 
-# 🚀 React Bookshelf Client
+#  📚  Bookshelf Client
 
 A modern, animated, and responsive React application integrated with Firebase and a MongoDB/Express backend. This frontend is styled with Tailwind CSS & DaisyUI, and uses a rich set of libraries for charts, animations, forms, and UI enhancements.
+
+The purpose of the Bookshelf website is to provide users with a convenient and organized platform to manage and explore their personal book collections. The site allows users to catalog books they have read, are currently reading, or plan to read in the future. It also enables users to discover new books, track reading progress, write reviews, and share recommendations with others. Tthe Bookshelf website aims to promote reading habits and create a community of book lovers.
 
 ---
 
@@ -14,7 +16,6 @@ A modern, animated, and responsive React application integrated with Firebase an
 - 🎞️ Animations via AOS, Lottie, Framer Motion
 - 🧼 Clean and responsive UI using DaisyUI + Tailwind
 - 📅 Date handling with `date-fns`
-- 🔁 Sliders and carousels with Swiper & React Slick
 - 🧭 React Router v7 for navigation
 - 🎉 SweetAlert2 modals for elegant alerts
 - ⚙️ Axios for backend communication
@@ -92,8 +93,6 @@ Then open http://localhovst:5173
 | `react-form-stepper`   | Multi-step form UI component                  |
 | `react-icons`          | Popular icon packs as React components        |
 | `react-router`         | Declarative routing in React apps             |
-| `react-slick`          | Carousel and slider component                 |
-| `slick-carousel`       | CSS for React Slick                          |
 | `react-toastify`       | Customizable toast notifications              |
 | `recharts`             | Charting and data visualization               |
 | `sweetalert2`          | Beautiful alert and modal dialogs             |

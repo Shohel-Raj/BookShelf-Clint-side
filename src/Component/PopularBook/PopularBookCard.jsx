@@ -1,18 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { motion } from 'framer-motion';
 
 
 
-const PopularBookCard = ({cardData}) => {
+
+const PopularBookCard = ({ cardData }) => {
 
 
-  const {book_author,book_category,book_overview,book_title,cover_photo,upvote,_id}=cardData;
+  const { book_author, book_category, book_overview, book_title, cover_photo, upvote, _id } = cardData;
 
 
   return (
-    <div
+    <motion.div
+      initial={{ scale: 1 }}
+      whileHover={{ scale: 1.04 }}
       data-aos="zoom-out-right"
       data-aos-duration="1000"
+
       className="flex flex-col rounded-lg overflow-hidden shadow-md bg-white mb-4 basis-full grow">
       {/* Book Cover */}
       <img
@@ -41,7 +46,7 @@ const PopularBookCard = ({cardData}) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

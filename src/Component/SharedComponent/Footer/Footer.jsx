@@ -25,7 +25,7 @@ const Footer = () => {
                     <div >
                         <div onClick={handleBTN} className=' btn btn-ghost p-0 mx-0'>
                             {/* <img className='w-10' src={img} /> */}
-                            <h1 className=" text-xl uppercase font-extrabold italic p-0">{import.meta.env.VITE_site_name}</h1>
+                            <h1 className=" text-xl uppercase font-extrabold italic p-0 flex justify-center items-center"><img className='w-[35px] mr-1.5' src='../../../public/book.png' />{import.meta.env.VITE_site_name}</h1>
                         </div>
                         <p className='small italic'>Nurturing Readers, One Book at a Time.</p>
                     </div>

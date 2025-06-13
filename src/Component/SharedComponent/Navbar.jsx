@@ -49,7 +49,7 @@ const Navbar = () => {
         <>
             <div className="navbar px-0 w-11/12 md:w-10/12 mx-auto">
                 <div className="navbar-start">
-                    <a className="btn btn-ghost px-0 text-xl">{import.meta.env.VITE_site_name}</a>
+                    <a className="btn btn-ghost px-0 text-xl"><img className='w-[35px]' src='../../../public/book.png' />{import.meta.env.VITE_site_name}</a>
                 </div>
 
                 {/* Desktop menu */}
@@ -103,7 +103,7 @@ const Navbar = () => {
                 {isMenuOpen && (
                     <div className="fixed inset-0 z-50 bg-base-100 md:hidden">
                         <div className="p-4 flex justify-between items-center border-b shadow-sm">
-                            <span className="text-xl font-bold">{import.meta.env.VITE_site_name}</span>
+                            <span className="text-xl font-bold flex justify-center items-center"><img className='w-[35px] mr-1' src='../../../public/book.png' />{import.meta.env.VITE_site_name}</span>
                             <button
                                 className="btn btn-sm btn-ghost text-2xl"
                                 onClick={() => setIsMenuOpen(false)}
