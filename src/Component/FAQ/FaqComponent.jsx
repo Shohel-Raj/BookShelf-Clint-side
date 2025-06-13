@@ -13,13 +13,23 @@ const FaqComponent = () => {
                 </div>
                 <div className="collapse collapse-arrow join-item border-base-300 border">
                     <input type="radio" name="my-accordion-4" />
-                    <div className="collapse-title font-semibold">I forgot my password. What should I do?</div>
-                    <div className="collapse-content text-sm">Click on "Forgot Password" on the login page and follow the instructions sent to your email.</div>
+                    <div className="collapse-title font-semibold">How do I add books to my personal bookshelf?</div>
+                    <div className="collapse-content text-sm">Simply browse the  “Add Book Page” From Navbar. You’ll need to be logged in to save books to your shelf.</div>
                 </div>
                 <div className="collapse collapse-arrow join-item border-base-300 border">
                     <input type="radio" name="my-accordion-4" />
-                    <div className="collapse-title font-semibold">How do I update my profile information?</div>
-                    <div className="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.</div>
+                    <div className="collapse-title font-semibold">Can I leave reviews or ratings for books?</div>
+                    <div className="collapse-content text-sm">Click on "View Details" button on you went to review book card. then you can review the book</div>
+                </div>
+                <div className="collapse collapse-arrow join-item border-base-300 border">
+                    <input type="radio" name="my-accordion-4" />
+                    <div className="collapse-title font-semibold">Is there a limit to how many books I can keep on my bookshelf?</div>
+                    <div className="collapse-content text-sm">No, there’s no limit! You can add as many books as you'd like to your personal shelf for easy access anytime.</div>
+                </div>
+                <div className="collapse collapse-arrow join-item border-base-300 border">
+                    <input type="radio" name="my-accordion-4" />
+                    <div className="collapse-title font-semibold">How do I update my reading progress?</div>
+                    <div className="collapse-content text-sm">Yes, you can update your reading progress form "Update page" and also from bookdetail page.</div>
                 </div>
             </div>
         </div>
