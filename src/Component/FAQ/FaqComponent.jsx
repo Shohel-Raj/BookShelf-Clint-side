@@ -1,9 +1,12 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const FaqComponent = () => {
     return (
-        <div
-            
+        <motion.div
+            initial={{ opacity:0 ,translateX:'-100%'}}
+                whileInView={{opacity:1,translateX:0}}i
+                transition={{ duration: 1 }}
         >
             <div className="join join-vertical bg-base-100">
                 <div className="collapse collapse-arrow join-item border-base-300 border">
@@ -32,7 +35,7 @@ const FaqComponent = () => {
                     <div className="collapse-content text-sm">Yes, you can update your reading progress form "Update page" and also from bookdetail page.</div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

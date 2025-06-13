@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
+const ReviewCard = ({ rev, setReviewed, handleDelet,setReRender }) => {
 
 
     const { user } = use(AuthContext);
@@ -40,7 +40,7 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
     }
     const handleUpdateModal = (e) => {
 
-        // e.preventDefault();
+        e.preventDefault();
         const formData = new FormData(e.target);
         const updateReview = Object.fromEntries(formData.entries());
         const today = format(new Date(), 'dd-MM-yyyyy'); // or any format you prefer
@@ -55,7 +55,7 @@ const ReviewCard = ({ rev, setReviewed, handleDelet }) => {
 
         axios.patch(`${import.meta.env.VITE_ApiCall}/review/${rev?._id}`, updateReview).then(res => {
             if (res.data.modifiedCount) {
-
+                setReRender(true);
                 toast.success('Review Update Successfuly');
 
                 setClosed(true)

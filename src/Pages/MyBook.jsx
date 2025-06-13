@@ -154,7 +154,7 @@ const MyBook = () => {
 
                         </table>
                     </div> : <div>
-                        <Loader></Loader>
+                        <EmptyMyBook></EmptyMyBook>
 
                     </div>
                 }

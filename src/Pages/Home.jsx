@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 import Aos from 'aos';
 import { useLoaderData } from 'react-router';
 
- Aos.init();
+Aos.init();
 
 
 const promisecard = fetch('/Catagory.json').then(res => res.json())
@@ -19,7 +19,7 @@ const promisecard = fetch('/Catagory.json').then(res => res.json())
 const Home = () => {
     const catagorydata = use(promisecard)
 
-    const data=useLoaderData();
+    const data = useLoaderData();
 
     return (
         <div>
@@ -34,11 +34,11 @@ const Home = () => {
 
                     </div>
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center mb-5 align-middle justify-center'>
-                        
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-stretch gap-5  mb-5 basis-1 align-middle justify-center'>
+
 
                         {
-                            data.map(cardData=><PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
+                            data.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
                         }
                     </div>
                 </div>
@@ -74,7 +74,9 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='my-16'>
+            <div
+                
+                className='my-16'>
                 <div className=' w-11/12 md:w-10/12 mx-auto py-6'>
                     <div className='text-center my-3.5'>
                         <h1 className='font-bold text-2xl md:text-3xl uppercase italic mb-3'>Frequently Asked Questions</h1>
@@ -82,8 +84,8 @@ const Home = () => {
 
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-3.5 mt-10'>
-                            <FaqComponent></FaqComponent>
-                            <FaqLottie></FaqLottie>
+                        <FaqComponent></FaqComponent>
+                        <FaqLottie></FaqLottie>
                     </div>
 
                 </div>

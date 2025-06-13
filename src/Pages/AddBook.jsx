@@ -14,14 +14,15 @@ const AddPlants = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const AddPlant = Object.fromEntries(formData.entries());
-        AddPlant.upvote = parseInt(AddPlant.upvote, 10);
+        const addBook = Object.fromEntries(formData.entries());
+        addBook.upvote = parseInt(addBook.upvote, 10);
     
 
-        axios.post(`${import.meta.env.VITE_ApiCall}/addBook`,AddPlant).then(res=>{
+        axios.post(`${import.meta.env.VITE_ApiCall}/addBook`,addBook).then(res=>{
 
             if(res.data.insertedId){
                 toast.success('Book Successfully added')
+                e.target.reset();
             }
         }).catch(error=>{ 
             toast.error(`${error.massage} found`)
@@ -55,7 +56,7 @@ const AddPlants = () => {
                             <input
                                 required
                                 type="text"
-                                name="booktitle"
+                                name="book_title"
                                 className="w-full border rounded p-2"
                                 placeholder='Type Book Title'
                             />
@@ -68,7 +69,7 @@ const AddPlants = () => {
                         <div>
                             <label className="block font-medium mb-1">Book Category</label>
                             <select
-                                name="book_category "
+                                name="book_category"
                                 required
                                 className="w-full border rounded p-2"
                             >

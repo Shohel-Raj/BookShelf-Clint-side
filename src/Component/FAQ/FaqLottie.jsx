@@ -10,7 +10,7 @@ const FaqLottie = () => {
     };
     return (
         <div>
-      <Lottie animationData={anim} style={style} />
+            <Lottie animationData={anim} style={style} />
         </div>
     );
 };

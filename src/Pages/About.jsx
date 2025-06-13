@@ -33,7 +33,7 @@ const About = () => {
                                 catagorydata.map(cat => <div key={cat.id} className="card card-side bg-base-100 shadow-sm">
                             <figure className='h-60 w-56'>
                                 <img
-                                className='h-full  w-full object-cover object-center'
+                                className='h-full  w-full object-cover object-top'
                                     src={cat.img}
                                     alt="img" />
                             </figure>
@@ -61,7 +61,6 @@ const About = () => {
                         </Suspense>
                         
 
-                        
 
                     </div>
                 </div>

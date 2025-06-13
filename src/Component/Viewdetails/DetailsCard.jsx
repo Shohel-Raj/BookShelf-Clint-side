@@ -58,13 +58,13 @@ const DetailsCard = ({ data, readingStatus }) => {
                     <div>
 
                         <div className='space-y-3'>
-                            <h4 className='flex gap-1.5'>Name : <p>{book_title}</p></h4>
-                            <h4 className='flex gap-1.5'>Category : <p>{book_category}</p></h4>
-                            <h4 className='flex gap-1.5'>Book Author : <p>{book_author}</p></h4>
-                            <h4 className='flex gap-1.5'>Reading Status : <p>{readingStatus}</p></h4>
-                            <h4 className='flex gap-1.5'>Total Page : <p>{total_page}</p></h4>
-                            <h4 className='flex gap-1.5 '><p className='w-20'>Details :</p> <p>{book_overview}</p></h4>
-                            <h4 className='flex gap-1.5'>Upvote : <p>{upvotestate} </p></h4>
+                            <div className='flex gap-1.5'><h4>Name :</h4>  <p>{book_title}</p></div>
+                            <div className='flex gap-1.5'><h4>Category :</h4>  <p>{book_category}</p></div>
+                            <div className='flex gap-1.5'><h4>Book Author :</h4>  <p>{book_author}</p></div>
+                            <div className='flex gap-1.5'><h4>Reading Status :</h4>  <p>{readingStatus}</p></div>
+                            <div className='flex gap-1.5'><h4>Total Page :</h4>  <p>{total_page}</p></div>
+                            <div className='grid gap-1.5 md:grid-cols-12 '><h4 className='md:col-span-1 '>Details :</h4> <p className='md:col-span-11'>{book_overview}</p></div>
+                            <div className='flex gap-1.5'><h4>Upvote :</h4> <p>{upvotestate} </p></div>
                         </div>
                         <div className='space-y-2 mt-2.5'>
                             <h1 className='text-gray-400'>Added by : <small className='italic'> {userName} </small></h1>

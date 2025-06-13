@@ -1,5 +1,5 @@
 import React, { use, useState } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import { FaArrowRightToBracket, FaRightFromBracket } from 'react-icons/fa6';
@@ -8,6 +8,13 @@ import { FaArrowRightToBracket, FaRightFromBracket } from 'react-icons/fa6';
 const Navbar = () => {
     const { user, signOutUser } = use(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const navigate =useNavigate();
+
+
+    const handleBTN=()=>{
+        navigate('/')
+    }
 
     const handleLogout = () => {
         signOutUser()
@@ -49,7 +56,8 @@ const Navbar = () => {
         <>
             <div className="navbar px-0 w-11/12 md:w-10/12 mx-auto">
                 <div className="navbar-start">
-                    <a className="btn btn-ghost px-0 text-xl font-bold fontLogo items-center justify-center"><img className='w-[30px]' src='../../../public/book.png' />{import.meta.env.VITE_site_name}</a>
+                    <div onClick={handleBTN} className="btn btn-ghost px-0 text-xl font-bold fontLogo items-center justify-center"><img className='w-[30px]' src='../../../public/book.png' /><h1 className='pt-2'>{import.meta.env.VITE_site_name}</h1></div>
+
                 </div>
 
                 {/* Desktop menu */}

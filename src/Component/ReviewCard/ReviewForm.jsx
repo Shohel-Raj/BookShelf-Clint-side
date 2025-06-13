@@ -6,7 +6,7 @@ import { AuthContext } from '../../Contexts/AuthContext';
 
 
 
-const ReviewForm = ({ datas ,setReview}) => {
+const ReviewForm = ({ datas ,setReview,setReRender}) => {
 
     const { user } = use(AuthContext);
 
@@ -16,7 +16,7 @@ const ReviewForm = ({ datas ,setReview}) => {
     const { _id } = datas;
 
     const handleReview = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const formData = new FormData(e.target);
         const review = Object.fromEntries(formData.entries());
         const today = format(new Date(), 'dd-MM-yyyyy'); // or any format you prefer
@@ -26,13 +26,16 @@ const ReviewForm = ({ datas ,setReview}) => {
         review.book_id = _id;
         review.user_email =user?.email;
         review.user_name = user?.displayName;
-        setReview(prev => [...prev, review])
+        // setReview(prev => [...prev, review])
+        // console.log(review);
 
 
         axios.post(`${import.meta.env.VITE_ApiCall}/review`,review).then(res=>{
         
                     if(res.data.insertedId){
+                        setReRender(true)
                         toast.success('Review added Successfully')
+                        
                     }
                 }).catch(error=>{ 
                     toast.error(`${error.massage} found`)

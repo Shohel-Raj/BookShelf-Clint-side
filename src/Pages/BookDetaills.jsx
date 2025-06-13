@@ -17,6 +17,7 @@ const BookDetaills = () => {
     const datas = useLoaderData();
     const [review, setReview] = useState([]);
     const [reviewed, setReviewed] = useState(false);
+    const [render, setReRender] = useState(true);
     const [readingStatus, setReadingStatus] = useState('')
 
 
@@ -26,23 +27,26 @@ const BookDetaills = () => {
 
         const token = user.accessToken;
 
+        if (render) {
+            axios.get(`${import.meta.env.VITE_ApiCall}/review/${datas._id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }).then(res => {
+                setReview(res.data);
+                setReRender(false)
+
+            }).catch(error => {
+                toast.error(`${error.code} error found`);
+            })
+        }
 
 
-        axios.get(`${import.meta.env.VITE_ApiCall}/review/${datas._id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }).then(res => {
-            setReview(res.data);
-
-        }).catch(error => {
-            toast.error(`${error.code} error found`);
-        })
 
 
 
 
-    }, [datas, user])
+    }, [datas, user, render])
 
     const handleDelet = (id) => {
         Swal.fire({
@@ -122,7 +126,7 @@ const BookDetaills = () => {
                     <h1 className='font-bold text-2xl md:text-2xl uppercase italic mb-3'>reviews are :</h1>
                     <hr className='border-t-1 border-dashed mb-3.5' />
                     {
-                        review.length > 0 ? review?.map((rev, index) => <ReviewCard key={rev?._id || index} rev={rev} setReview={setReview} handleDelet={handleDelet} setReviewed={setReviewed}></ReviewCard>) : <EmptyReview></EmptyReview>
+                        review.length > 0 ? review?.map((rev, index) => <ReviewCard key={rev?._id || index} rev={rev} setReviewed={setReviewed} setReview={setReview} handleDelet={handleDelet} setReRender={setReRender}></ReviewCard>) : <EmptyReview></EmptyReview>
                     }
 
 
@@ -136,7 +140,7 @@ const BookDetaills = () => {
                 !reviewed && <><div className='w-11/12 md:w-10/12 mx-auto py-6'>
                     <h1 className='font-bold text-2xl md:text-2xl uppercase italic mb-3'>please add your review :</h1>
                     <hr className='border-t-1 border-dashed mb-3.5' />
-                    <ReviewForm datas={datas} setReview={setReview}></ReviewForm>
+                    <ReviewForm datas={datas} setReview={setReview} setReRender={setReRender}></ReviewForm>
                 </div></>
             }
         </>

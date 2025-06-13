@@ -28,7 +28,9 @@ const CatagoryCard = ({ data }) => {
                 variants={{
                     hover: { scale: 1.1 }, // scale on hover
                     initial: { scale: 1 },
+                    
                 }}
+                transition={{ duration: 1 }}
                 className='w-full h-full object-cover' src={imgUrl} alt={name} />
 
             {/* Overlay */}
