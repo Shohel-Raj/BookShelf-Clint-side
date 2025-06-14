@@ -1,18 +1,24 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { use, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../Contexts/AuthContext';
 
 const UpdateBook = () => {
-    useEffect(()=>{
-         document.title = `${import.meta.env.VITE_site_name} | Book Update`
-    },[])
+
+
+    const { user, loading } = use(AuthContext);
+
+    useEffect(() => {
+        document.title = `${import.meta.env.VITE_site_name} | Book Update`
+    }, [])
 
     const data = useLoaderData();
     const { _id, userName, userEmail, book_author, upvote, total_page, reading_status, cover_photo, book_title, book_overview, book_category } = data;
 
     const handleUpdate = (e) => {
         e.preventDefault();
+        const token = user?.accessToken;
         const formData = new FormData(e.target);
         const upDate = Object.fromEntries(formData.entries());
         upDate.upvote = parseInt(upDate.upvote, 10);
@@ -20,7 +26,12 @@ const UpdateBook = () => {
 
 
 
-        axios.put(`${import.meta.env.VITE_ApiCall}/book/${_id}`, upDate).then(res => {
+        axios.put(`${import.meta.env.VITE_ApiCall}/book/${_id}`,upDate,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+
+            }).then(res => {
             if (res.data.modifiedCount) {
                 toast.success('Update Successfuly')
             } else if (res.data.matchedCount) {
@@ -30,7 +41,10 @@ const UpdateBook = () => {
             toast.error(`${error.massage} found try again`)
         })
     }
+    if (loading) {
 
+        return <Loader></Loader>
+    }
 
     return (
         <>

@@ -1,36 +1,53 @@
-import React, { use, useEffect } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const AddPlants = () => {
+    const { user, loading } = use(AuthContext);
+
+    const [token, setToken] = useState('')
+
 
     useEffect(() => {
         document.title = `${import.meta.env.VITE_site_name} | Add Book`
-    }, [])
 
-    const { user } = use(AuthContext);
+        const token = user?.accessToken;
+        setToken(token)
+
+    }, [user])
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const formData = new FormData(e.target);
         const addBook = Object.fromEntries(formData.entries());
         addBook.upvote = parseInt(addBook.upvote, 10);
-    
 
-        axios.post(`${import.meta.env.VITE_ApiCall}/addBook`,addBook).then(res=>{
 
-            if(res.data.insertedId){
+        axios.post(`${import.meta.env.VITE_ApiCall}/addBook`,addBook, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+
+        }).then(res => {
+
+            if (res.data.insertedId) {
                 toast.success('Book Successfully added')
                 e.target.reset();
             }
-        }).catch(error=>{ 
+        }).catch(error => {
             toast.error(`${error.massage} found`)
         })
 
     };
 
+    if (loading) {
 
+        return <Loader></Loader>
+    }
 
     return (
         <>

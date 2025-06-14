@@ -50,10 +50,10 @@ const DetailsCard = ({ data, readingStatus }) => {
     return (
         <div>
             <div className="grid grid-rows-1 md:grid-cols-3 shadow-xl rounded-2xl py-5 px-3 gap-6 ">
-                <div className='rounded-2xl'>
-                    <img className='w-[250px] rounded-2xl' src={cover_photo} alt="" />
+                <div className='rounded-2xl md:w-[390px] h-[415px]'>
+                    <img className='w-full h-full rounded-2xl' src={cover_photo} alt="" />
                 </div>
-                <div className='col-span-2'>
+                <div className='md:col-span-2'>
                     <h1 className='font-bold text-2xl mb-4 uppercase italic'>📚 details of {book_title} :</h1>
                     <div>
 

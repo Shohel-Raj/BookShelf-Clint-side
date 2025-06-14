@@ -111,7 +111,7 @@ const Navbar = () => {
                 {isMenuOpen && (
                     <div className="fixed inset-0 z-50 bg-base-100 md:hidden">
                         <div className="p-4 flex justify-between items-center border-b shadow-sm">
-                            <span className="text-xl font-bold flex justify-center items-center"><img className='w-[35px] mr-1' src='../../../public/book.png' />{import.meta.env.VITE_site_name}</span>
+                            <span className="text-xl font-bold flex justify-center items-center"><img className='w-[35px] mr-1' src={img} />{import.meta.env.VITE_site_name}</span>
                             <button
                                 className="btn btn-sm btn-ghost text-2xl"
                                 onClick={() => setIsMenuOpen(false)}
