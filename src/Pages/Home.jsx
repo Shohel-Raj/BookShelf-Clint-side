@@ -1,4 +1,4 @@
-import React, { Suspense, use } from 'react';
+import React, { Suspense, use, useEffect } from 'react';
 import Slider from '../Component/Slider/Slider';
 import PopularBookCard from '../Component/PopularBook/PopularBookCard';
 import CatagoryCard from '../Component/CatagoryCard/CatagoryCard';
@@ -20,6 +20,11 @@ const Home = () => {
     const catagorydata = use(promisecard)
 
     const data = useLoaderData();
+
+
+    useEffect(()=>{
+         document.title = `${import.meta.env.VITE_site_name} | Home`
+    },[])
 
     return (
         <div>

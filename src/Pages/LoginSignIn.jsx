@@ -4,7 +4,7 @@ import SignIn from '../Component/LoginSignIn/SignIn';
 
 const LoginSignIn = () => {
     useEffect(()=>{
-            document.title=`Plant Care | Login`
+             document.title = `${import.meta.env.VITE_site_name} | Login`
         },[])
     return (
         <div>

@@ -1,9 +1,12 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import { toast } from 'react-toastify';
 
 const UpdateBook = () => {
+    useEffect(()=>{
+         document.title = `${import.meta.env.VITE_site_name} | Book Update`
+    },[])
 
     const data = useLoaderData();
     const { _id, userName, userEmail, book_author, upvote, total_page, reading_status, cover_photo, book_title, book_overview, book_category } = data;

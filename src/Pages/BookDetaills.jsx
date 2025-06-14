@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 import ReadStatus from '../Component/Stepper/ReadStatus';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Contexts/AuthContext';
+import EmptyMyBook from '../Component/EmptyMyBook';
+import EmptyBookDetails from '../Component/EmptyBookDetails';
 
 const BookDetaills = () => {
     const { user, loading, } = use(AuthContext);
@@ -24,6 +26,7 @@ const BookDetaills = () => {
 
 
     useEffect(() => {
+         document.title = `${import.meta.env.VITE_site_name} | Book Details`
 
         const token = user.accessToken;
 
@@ -89,9 +92,13 @@ const BookDetaills = () => {
 
         return <Loader></Loader>
     }
-
+    if(datas.length>0){
+        return <EmptyBookDetails></EmptyBookDetails>
+    }
     return (
         <>
+
+           
             <div className='bg-[#f4f7f9]'>
                 <div className='w-11/12 md:w-10/12 mx-auto py-6'>
                     <div className='text-center my-3.5'>
@@ -101,6 +108,7 @@ const BookDetaills = () => {
                     </div>
 
                     {
+                        
                         datas ? <DetailsCard data={datas} readingStatus={readingStatus}></DetailsCard> : <DetailsEmpty></DetailsEmpty>
                     }
 

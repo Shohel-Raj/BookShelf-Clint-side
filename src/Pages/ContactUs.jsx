@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import anim from '../../public/contact.json'
 import Lottie from 'lottie-react';
 
 
 const ContactUs = () => {
+
+
+    useEffect(()=>{
+         document.title = `${import.meta.env.VITE_site_name} | Contact Us`
+    },[])
     const style = {
         height: 300,
     };

@@ -1,4 +1,4 @@
-import React, { Suspense, use } from 'react';
+import React, { Suspense, use, useEffect } from 'react';
 import { FaGithubSquare, FaTwitterSquare } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa6';
 import Loader from '../Component/Loader/Loader';
@@ -9,9 +9,15 @@ const promisecard = fetch('/team.json').then(res => res.json())
 const About = () => {
 
         const catagorydata = use(promisecard)
+
+
+        useEffect(()=>{
+            document.title = `BOOKSHELF | About Us`
+        },[])
     
 
     return (
+        
         <div className='w-11/12 md:w-10/12 mx-auto min-h-[calc(100vh-200px)]'>
 
             {/* Hero Section */}

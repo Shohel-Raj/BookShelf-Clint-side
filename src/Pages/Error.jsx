@@ -1,6 +1,9 @@
 import Lottie from 'lottie-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { IoPlayBackSharp } from "react-icons/io5";
+
+
 
 
 import { Link } from 'react-router';
@@ -12,7 +15,14 @@ const Error = () => {
         height: 300,
     };
 
+    useEffect(()=>{
+         document.title = `${import.meta.env.VITE_site_name} | Error`
+    },[])
+
     return (
+
+
+        
         <>
 
             <section
@@ -41,7 +51,7 @@ const Error = () => {
                         className="mt-4 mb-8 ">We couldn’t load your the page at the moment. <br />
                         Please try again later or return to the homepage.</motion.p>
 
-                    <Link to='/' className="px-8 py-3 font-extrabold rounded playfair  btn bg-[#34eb74] text-white hover:bg-[#97f7b9] hover:text-black mt-4 uppercase  ">Back to homepage</Link>
+                    <Link to='/' className="px-8 py-3 font-extrabold rounded playfair  btn bg-[#34eb74] text-white hover:bg-[#97f7b9] hover:text-black mt-4 uppercase  "><IoPlayBackSharp size={20}/> Back to homepage</Link>
                 </div>
             </section>
         </>

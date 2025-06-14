@@ -24,6 +24,8 @@ const Profile = () => {
     useEffect(() => {
 
 
+         document.title = `${import.meta.env.VITE_site_name} | Profile`
+
         const token = user?.accessToken;
 
         // axios.get(`${import.meta.env.VITE_ApiCall}/books`).then(res => {

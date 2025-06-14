@@ -6,7 +6,7 @@ import { AuthContext } from '../../Contexts/AuthContext';
 
 
 
-const ReviewForm = ({ datas ,setReview,setReRender}) => {
+const ReviewForm = ({ datas ,setReRender}) => {
 
     const { user } = use(AuthContext);
 
@@ -26,8 +26,7 @@ const ReviewForm = ({ datas ,setReview,setReRender}) => {
         review.book_id = _id;
         review.user_email =user?.email;
         review.user_name = user?.displayName;
-        // setReview(prev => [...prev, review])
-        // console.log(review);
+
 
 
         axios.post(`${import.meta.env.VITE_ApiCall}/review`,review).then(res=>{

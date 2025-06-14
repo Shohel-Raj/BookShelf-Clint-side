@@ -7,6 +7,10 @@ The purpose of the Bookshelf website is to provide users with a convenient and o
 
 ---
 
+## Live Demo
+
+Check out the live version of the project [BOOKSHELF](https://book-shelf-7d010.web.app/).
+
 ## 🌟 Features
 
 - 📚 Dynamic book listing with filtering, CRUD, and reviews
@@ -40,7 +44,7 @@ The purpose of the Bookshelf website is to provide users with a convenient and o
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/bookshelf-client.git
+   git clone pject to your machine
    cd bookshelf-client
 
 2. **Install dependencies:**
@@ -62,6 +66,8 @@ The purpose of the Bookshelf website is to provide users with a convenient and o
     VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
     VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
     VITE_FIREBASE_APP_ID=your_app_id
+    VITE_site_name=BOOKSHELF
+   VITE_ApiCall=your_server_api
 
 4. **🧪 Running the App:**
 

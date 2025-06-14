@@ -61,7 +61,7 @@ const MyBook = () => {
                     method: 'DELETE'
                 })
                     .then(res => res.json()).then((data => {
-                        console.log(data);
+  
 
                         if (data.deletedCount) {
                             const remainigData = dataa.filter(d => d._id !== id);

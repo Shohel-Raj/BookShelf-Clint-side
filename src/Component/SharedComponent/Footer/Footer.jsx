@@ -3,6 +3,8 @@ import { FaFacebookSquare, FaTwitterSquare, FaInstagram, FaPhoneSquareAlt } from
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
 import { useNavigate } from 'react-router';
+import img from '/book.png'
+
 
 const Footer = () => {
 
@@ -25,7 +27,7 @@ const Footer = () => {
                     <div >
                         <div onClick={handleBTN} className=' btn btn-ghost p-0 mx-0'>
                             {/* <img className='w-10' src={img} /> */}
-                            <div className=" uppercase font-extrabold italic p-0 flex justify-center text-center items-center"><img className='w-[35px] mr-1.5' src='../../../public/book.png' /><h1 className='pt-2 text-2xl '>{import.meta.env.VITE_site_name}</h1></div>
+                            <div className=" uppercase font-extrabold italic p-0 flex justify-center text-center items-center"><img className='w-[35px] mr-1.5' src={img} /><h1 className='pt-2 text-2xl '>{import.meta.env.VITE_site_name}</h1></div>
                         </div>
                         <p className='small italic'>Nurturing Readers, One Book at a Time.</p>
                     </div>
