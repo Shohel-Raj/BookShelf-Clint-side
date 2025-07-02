@@ -34,7 +34,9 @@ const Navbar = () => {
             <li>
                 <NavLink to="/allbook" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'} onClick={() => setIsMenuOpen(false)}>Bookshelf</NavLink>
             </li>
-            <li>
+           {
+            user && <>
+             <li>
                 <NavLink to="/mybook" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'} onClick={() => setIsMenuOpen(false)}>My Books</NavLink>
             </li>
             <li>
@@ -43,6 +45,8 @@ const Navbar = () => {
             <li>
                 <NavLink to="/profile" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'} onClick={() => setIsMenuOpen(false)}>Profile </NavLink>
             </li>
+            </>
+           }
             <li>
                 <NavLink to="/About" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'} onClick={() => setIsMenuOpen(false)}>About </NavLink>
             </li>

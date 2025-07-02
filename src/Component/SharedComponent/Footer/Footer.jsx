@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebookSquare, FaTwitterSquare, FaInstagram, FaPhoneSquareAlt } from "react-icons/fa";
-import { FaLocationDot } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaLocationDot } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
 import { useNavigate } from 'react-router';
 import img from '/book.png'
@@ -37,29 +37,32 @@ const Footer = () => {
 
                         <ul className="flex flex-col space-y-1.5">
                             <li >
-                                <a className='hover:text-amber-400 flex gap-2 text-center' ><FaPhoneSquareAlt size={20} className='hover:scale-125' /> <span>01963687341</span></a>
+                                <a className='hover:text-[#82dda2] flex gap-2 text-center' ><FaPhoneSquareAlt size={20} className='hover:scale-125' /> <span>01963687341</span></a>
                             </li>
                             <li>
-                                <a className='hover:text-amber-400 flex gap-2' ><MdEmail size={20} className='hover:scale-125' /> shohelraj8778@gmail.com </a>
+                                <a className='hover:text-[#82dda2] flex gap-2' ><MdEmail size={20} className='hover:scale-125' /> shohelraj8778@gmail.com </a>
                             </li>
                             <li>
-                                <a className='hover:text-amber-400 flex gap-2' ><FaLocationDot size={20} className='hover:scale-125' /> Cox's Bazar,Sadar Bangadesh</a>
+                                <a className='hover:text-[#82dda2]  flex gap-2' ><FaLocationDot size={20} className='hover:scale-125' /> Cox's Bazar,Sadar Bangadesh</a>
                             </li>
                         </ul>
                     </div>
 
                     <div>
                         <p className='font-bold text-2xl mb-2'>Social Contact</p>
-                        <ul className="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
+                        <ul className="flex flex-wrap  space-x-4 sm:space-x-8">
 
-                            <li>
-                                <a className='hover:text-amber-400 ' href="https://www.instagram.com/" target='_blank'><FaInstagram size={25} className='hover:scale-125' /></a>
+                             <li>
+                                <a className='hover:text-[#97f7b9] ' href="https://www.instagram.com/mohammed_shohel_raj/" target='_blank'><FaInstagram size={25} className='hover:scale-125' /></a>
                             </li>
                             <li>
-                                <a className='hover:text-amber-400 ' href="https://www.facebook.com/" target='_blank' ><FaFacebookSquare size={25} className='hover:scale-125' /> </a>
+                                <a className='hover:text-[#97f7b9] ' href="https://facebook.com/mohammedshohel.bd" target='_blank' ><FaFacebookSquare size={25} className='hover:scale-125' /> </a>
                             </li>
                             <li>
-                                <a className='hover:text-amber-400 ' href="https://www.x.com/" target='_blank' ><FaTwitterSquare size={25} className='hover:scale-125' /></a>
+                                <a className='hover:text-[#97f7b9] ' href="https://linkedin.com/in/mohammedshohel87" target='_blank' ><FaLinkedin size={25} className='hover:scale-125' /></a>
+                            </li>
+                            <li>
+                                <a className='hover:text-[#97f7b9] ' href="https://github.com/Shohel-Raj/" target='_blank' ><FaGithub size={25} className='hover:scale-125' /></a>
                             </li>
                         </ul>
                     </div>

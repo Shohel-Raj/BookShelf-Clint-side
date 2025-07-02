@@ -43,7 +43,7 @@ const Home = () => {
 
 
                         {
-                            data.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
+                            data?.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)
                         }
                     </div>
                 </div>

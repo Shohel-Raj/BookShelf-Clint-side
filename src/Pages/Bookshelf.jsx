@@ -21,36 +21,31 @@ const Bookshelf = () => {
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('');
     const[fatching,setFatching]=useState(true);
-
+    
 
 
     useEffect(() => {
         document.title = `BOOKSHELF | All BOOK`
 
 
-        const token = user?.accessToken;
+        // const token = user?.accessToken;
 
         if (!loading) {
-            let url = `${import.meta.env.VITE_ApiCall}/books`
+            let url = `${import.meta.env.VITE_ApiCall}/filtereds`
 
             if (filter) {
-                url = `${import.meta.env.VITE_ApiCall}/filtered?category=${filter}`
+                url = `${import.meta.env.VITE_ApiCall}/filtereds?category=${filter}`
             }
 
             if (search) {
-                url = `${import.meta.env.VITE_ApiCall}/filtered?search=${search}`
+                url = `${import.meta.env.VITE_ApiCall}/filtereds?search=${search}`
             }
 
             // } else (
             //     url = 'https://plant-care-server-azure.vercel.app/allPlant?order=desc'
             // )
 
-            fetch(url, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                },
-
-            }).then(res => res.json()).then(data => {
+            fetch(url).then(res => res.json()).then(data => {
                 setFatching(true);
                 setData(data);
                 setFatching(false)
@@ -100,8 +95,6 @@ const Bookshelf = () => {
                         </p>
                     </div>
 
-                    {
-                        user && <>
 
                             <div className='flex md:justify-between flex-col md:flex-row'>
                                 <div className='flex justify-center items-center mb-2 md:mb-0'>
@@ -119,8 +112,6 @@ const Bookshelf = () => {
                                 </div>
 
                             </div>
-                        </>
-                    }
 
 
                 </div>
@@ -131,7 +122,7 @@ const Bookshelf = () => {
 
 
                     {
-                        !user ? <EmptyBookShelf></EmptyBookShelf> : !!dataa?.length == 0 ? <EmptyMyBook></EmptyMyBook> : <>
+                         !!dataa?.length == 0 ? <EmptyMyBook></EmptyMyBook> : <>
                             {dataa?.map(cardData => <PopularBookCard key={cardData._id} cardData={cardData}></PopularBookCard>)}
 
                         </>
