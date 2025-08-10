@@ -31,6 +31,7 @@ const Footer = () => {
                         </div>
                         <p className='small italic'>Nurturing Readers, One Book at a Time.</p>
                     </div>
+                    
                     <div className='mr-0'>
 
                         <h1 className='font-bold text-2xl mb-2'>Contact Us</h1>
