@@ -3,24 +3,36 @@
     "id": 1,
     "name": "Alex Johnson",
     "role": "Founder & Bookworm-in-Chief",
-    "img": "https://i.postimg.cc/ZnYDYPwC/man-1.jpg"
+    "img": "https://i.postimg.cc/ZnYDYPwC/man-1.jpg",
+    "twitter":"https:x.com",
+    "linkedin":"https://www.linkedin.com/",
+    "github":"https://github.com/"
   },
   {
     "id": 2,
     "name": "Rina Patel",
     "role": "UX Designer & Avid Fantasy Fan",
-    "img": "https://i.postimg.cc/CMJQPtKD/woman-1.jpg"
+    "img": "https://i.postimg.cc/CMJQPtKD/woman-1.jpg",
+    "twitter":"https://x.com",
+    "linkedin":"https://www.linkedin.com/",
+    "github":"https://github.com/"
   },
   {
     "id": 3,
     "name": "David Kim",
     "role": "Full-Stack Developer & Sci-Fi Lover",
-    "img": "https://i.postimg.cc/L5vwjQJt/man-2.jpg"
+    "img": "https://i.postimg.cc/L5vwjQJt/man-2.jpg",
+    "twitter":"https://x.com",
+    "linkedin":"https://www.linkedin.com/",
+    "github":"https://github.com/"
   },
   {
     "id": 4,
     "name": "Sofia Martinez",
     "role": "Content Curator & Historical Fiction Enthusiast",
-    "img": "https://i.postimg.cc/mkTKzWgZ/woman-2.jpg"
+    "img": "https://i.postimg.cc/mkTKzWgZ/woman-2.jpg",
+    "twitter":"https://x.com",
+    "linkedin":"https://www.linkedin.com/",
+    "github":"https://github.com/"
   }
 ]
