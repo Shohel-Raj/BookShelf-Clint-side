@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import img from '/slider3.jpeg'
+import img from '/slider3.jpg'
 
 const Slider3 = () => {
     return (
