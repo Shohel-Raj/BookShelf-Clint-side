@@ -4,6 +4,7 @@ import { AuthContext } from '../../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import { FaArrowRightToBracket, FaRightFromBracket } from 'react-icons/fa6';
 import img from '/book.png';
+import ThemeToggle from '../ThemeToggle';
 
 const Navbar = () => {
     const { user, signOutUser } = use(AuthContext);
@@ -85,6 +86,7 @@ const Navbar = () => {
     return (
         <>
             <div className="navbar px-0 w-11/12 md:w-10/12 mx-auto duration-300">
+            {/* <ThemeToggle/> */}
                 <div className="navbar-start">
                     <div onClick={handleBTN} className="btn btn-ghost px-0 text-xl font-bold fontLogo items-center justify-center">
                         <img className='w-[30px]' src={img} alt="Logo" />
