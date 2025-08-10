@@ -1,12 +1,44 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FaFacebookSquare, FaTwitterSquare, FaInstagram, FaPhoneSquareAlt } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaLocationDot } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
-import { useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import img from '/book.png'
+import { AuthContext } from '../../../Contexts/AuthContext';
 
 
 const Footer = () => {
+        const { user } = use(AuthContext);
+    
+    const links = (
+            <>
+                <li>
+                    <NavLink to="/" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'}>Home</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/allbook" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'}>Bookshelf</NavLink>
+                </li>
+               {
+                user && <>
+                 <li>
+                    <NavLink to="/mybook" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'}>My Books</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/addbook" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'}> Add Book</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/profile" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'}>Profile </NavLink>
+                </li>
+                </>
+               }
+                <li>
+                    <NavLink to="/About" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'}>About </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/Contact" className={({ isActive }) => isActive ? 'font-bold border-b-2 uppercase' : 'uppercase'} >Contact Us </NavLink>
+                </li>
+            </>
+        );
 
 
     const navigate =useNavigate();
@@ -32,6 +64,16 @@ const Footer = () => {
                         <p className='small italic'>Nurturing Readers, One Book at a Time.</p>
                     </div>
                     
+                    <div className='mr-0'>
+
+                        <h1 className='font-bold text-2xl mb-2'>Useful Links</h1>
+
+                        <ul className="flex flex-col space-y-1.5">
+                            {
+                                links
+                            }
+                        </ul>
+                    </div>
                     <div className='mr-0'>
 
                         <h1 className='font-bold text-2xl mb-2'>Contact Us</h1>
