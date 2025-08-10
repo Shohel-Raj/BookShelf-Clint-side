@@ -29,15 +29,15 @@ const Navbar = () => {
             <li>
                 <NavLink to="/" className={({ isActive }) =>
                     isActive
-                        ? 'font-bold border-b-2 uppercase border-primary'
-                        : 'uppercase'
+                        ? 'font-bold border-2 uppercase dark:text-green-400'
+                        : 'uppercase  hover:text-green-500 dark:hover:text-green-400'
                 } onClick={() => setIsMenuOpen(false)}>Home</NavLink>
             </li>
             <li>
                 <NavLink to="/allbook" className={({ isActive }) =>
                     isActive
-                        ? 'font-bold border-b-2 uppercase border-primary'
-                        : 'uppercase'
+                        ? 'font-bold border-2 uppercase dark:text-green-400'
+                        : 'uppercase  hover:text-green-500 dark:hover:text-green-400'
                 } onClick={() => setIsMenuOpen(false)}>Bookshelf</NavLink>
             </li>
             {user && (
@@ -45,22 +45,22 @@ const Navbar = () => {
                     <li>
                         <NavLink to="/mybook" className={({ isActive }) =>
                             isActive
-                                ? 'font-bold border-b-2 uppercase border-primary'
-                                : 'uppercase'
+                                ? 'font-bold border-2 uppercase dark:text-green-400'
+                        : 'uppercase  hover:text-green-500 dark:hover:text-green-400'
                         } onClick={() => setIsMenuOpen(false)}>My Books</NavLink>
                     </li>
                     <li>
                         <NavLink to="/addbook" className={({ isActive }) =>
                             isActive
-                                ? 'font-bold border-b-2 uppercase border-primary'
-                                : 'uppercase'
+                                ? 'font-bold border-2 uppercase dark:text-green-400'
+                        : 'uppercase  hover:text-green-500 dark:hover:text-green-400'
                         } onClick={() => setIsMenuOpen(false)}>Add Book</NavLink>
                     </li>
                     <li>
                         <NavLink to="/profile" className={({ isActive }) =>
                             isActive
-                                ? 'font-bold border-b-2 uppercase border-primary'
-                                : 'uppercase'
+                                ? 'font-bold border-2 uppercase dark:text-green-400'
+                        : 'uppercase  hover:text-green-500 dark:hover:text-green-400'
                         } onClick={() => setIsMenuOpen(false)}>Profile</NavLink>
                     </li>
                 </>
@@ -68,15 +68,15 @@ const Navbar = () => {
             <li>
                 <NavLink to="/About" className={({ isActive }) =>
                     isActive
-                        ? 'font-bold border-b-2 uppercase border-primary'
-                        : 'uppercase'
+                        ? 'font-bold border-2 uppercase dark:text-green-400'
+                        : 'uppercase  hover:text-green-500 dark:hover:text-green-400'
                 } onClick={() => setIsMenuOpen(false)}>About</NavLink>
             </li>
             <li>
                 <NavLink to="/Contact" className={({ isActive }) =>
                     isActive
-                        ? 'font-bold border-b-2 uppercase border-primary'
-                        : 'uppercase'
+                        ? 'font-bold border-2 uppercase dark:text-green-400'
+                        : 'uppercase  hover:text-green-500 dark:hover:text-green-400'
                 } onClick={() => setIsMenuOpen(false)}>Contact Us</NavLink>
             </li>
         </>
