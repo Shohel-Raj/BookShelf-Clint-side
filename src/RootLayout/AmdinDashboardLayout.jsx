@@ -13,9 +13,9 @@ const AdminDashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const menuItems = [
-    { name: "Dashboard", icon: <FaTachometerAlt />, path: "/adminDashBoard" },
+    { name: "Dashboard", icon: <FaTachometerAlt />, path: "/adminDashBoard/overview" },
     // { name: "Users", icon: <FaUsers />, path: "/admin/users" },
-    { name: "Books", icon: <FaBook />, path: "/adminDashBoard/books" },
+    { name: "Books", icon: <FaBook />, path: "adminDashBoard/books" },
     // { name: "Settings", icon: <FaCog />, path: "/admin/settings" },
   ];
 

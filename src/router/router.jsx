@@ -17,7 +17,7 @@ import Loader from "../Component/Loader/Loader";
 import ContactUs from "../Pages/ContactUs";
 import AmdinDashboardLayout from "../RootLayout/AmdinDashboardLayout";
 import AdminDashboard from "../Pages/AdminDashboard";
-import AminBooks from "../Pages/AminBooks";
+import AdminContactMessages from "../Pages/AdminContactMessages";
 
 
 
@@ -120,12 +120,12 @@ const router = createBrowserRouter([
         errorElement:<Error/>,
         children:[
              {
-                index: true,
+                path:"Overview",
                 element: <AdminDashboard/>
             },
             {
              path:'adminDashBoard/books',
-             element:<AminBooks/>
+             element:<AdminContactMessages/>
             }
         ]
     }
