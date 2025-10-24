@@ -17,6 +17,7 @@ import Loader from "../Component/Loader/Loader";
 import ContactUs from "../Pages/ContactUs";
 import AmdinDashboardLayout from "../RootLayout/AmdinDashboardLayout";
 import AdminDashboard from "../Pages/AdminDashboard";
+import AminBooks from "../Pages/AminBooks";
 
 
 
@@ -122,6 +123,10 @@ const router = createBrowserRouter([
                 index: true,
                 element: <AdminDashboard/>
             },
+            {
+             path:'adminDashBoard/books',
+             element:<AminBooks/>
+            }
         ]
     }
 

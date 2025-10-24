@@ -14,9 +14,9 @@ const AdminDashboardLayout = () => {
 
   const menuItems = [
     { name: "Dashboard", icon: <FaTachometerAlt />, path: "/adminDashBoard" },
-    { name: "Users", icon: <FaUsers />, path: "/admin/users" },
-    { name: "Books", icon: <FaBook />, path: "/admin/books" },
-    { name: "Settings", icon: <FaCog />, path: "/admin/settings" },
+    // { name: "Users", icon: <FaUsers />, path: "/admin/users" },
+    { name: "Books", icon: <FaBook />, path: "/adminDashBoard/books" },
+    // { name: "Settings", icon: <FaCog />, path: "/admin/settings" },
   ];
 
   return (
