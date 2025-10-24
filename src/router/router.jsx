@@ -15,6 +15,8 @@ import PageAnim from "../Component/SharedComponent/PageAnim";
 import Error from "../Pages/Error";
 import Loader from "../Component/Loader/Loader";
 import ContactUs from "../Pages/ContactUs";
+import AmdinDashboardLayout from "../RootLayout/AmdinDashboardLayout";
+import AdminDashboard from "../Pages/AdminDashboard";
 
 
 
@@ -111,6 +113,17 @@ const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path:"/adminDashBoard",
+        Component: AmdinDashboardLayout,
+        errorElement:<Error/>,
+        children:[
+             {
+                index: true,
+                element: <AdminDashboard/>
+            },
+        ]
+    }
 
 ]);
 
