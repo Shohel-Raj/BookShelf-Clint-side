@@ -120,11 +120,11 @@ const router = createBrowserRouter([
         errorElement:<Error/>,
         children:[
              {
-                path:"Overview",
+                index:true,
                 element: <AdminDashboard/>
             },
             {
-             path:'adminDashBoard/books',
+             path:'/adminDashBoard/books',
              element:<AdminContactMessages/>
             }
         ]
