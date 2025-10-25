@@ -26,6 +26,13 @@ Check out the live version of the project [BOOKSHELF](https://book-shelf-7d010.w
 
 ---
 
+### ✨ Newly Added Functionalities
+- 💌 **Subscription System** – Users can subscribe with their email to receive updates and newsletters.
+- 📞 **Contact Us Form** – Users can send feedback or inquiries directly through the website.
+- 🧑‍💼 **Admin Dashboard** – Dedicated admin panel to manage books, subscriptions, and messages.
+
+---
+
 ## 🛠️ Tech Stack
 
 - React 19
